@@ -5,13 +5,13 @@ try {
     $query = mssql_query('SELECT * FROM test');
 
 	// Check if there were any records
-	if (!mssql_num_rows($query)) {
+	/*if (!mssql_num_rows($query)) {
 	    echo 'No records found';
 	} else {
 	    while ($row = mssql_fetch_array($query)) {
         	echo $row['id'], $row['name'], PHP_EOL;
 	    }
-	}
+	}*/
 
 	// Free the query result
 	mssql_free_result($query);
