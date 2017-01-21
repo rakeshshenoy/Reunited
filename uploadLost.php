@@ -68,7 +68,7 @@
 		    'returnFaceLandmarks' => 'true'
 		);
 
-		$request->setQueryVariables($parameters);
+		$url->setQueryVariables($parameters);
 
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 
@@ -85,8 +85,8 @@
 		    echo $ex;
 		}
 
-		$obj = json_decode($response);
-		print_r($obj);
+		//$obj = json_decode($response);
+		print_r($response);
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
 		//echo $faceID.PHP_EOL;
