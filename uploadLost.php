@@ -85,7 +85,7 @@
 		    echo $ex;
 		}
 
-		$obj = json_decode($response[0]);
+		$obj = json_decode($response);
 		echo $obj->faceId;
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
