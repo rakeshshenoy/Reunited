@@ -14,7 +14,7 @@
 
 		// Create blob REST proxy.
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
-		echo "Blob service created".PHP_EOL;
+		//echo "Blob service created".PHP_EOL;
 	 
 		$image = $_POST['image'];
 		$name = $_POST['name'];
@@ -40,7 +40,7 @@
 		try    {
 		    //Upload blob
 		    $blobRestProxy->createBlockBlob("photos", $id, $content);
-		    echo "Success! Blob uploaded!".PHP_EOL;
+		    //echo "Success! Blob uploaded!".PHP_EOL;
 		}
 		catch(ServiceException $e){
 		    // Handle exception based on error codes and messages.
@@ -89,9 +89,9 @@
 
 		$faceID = $request[0]['faceId'];
 		echo $name.PHP_EOL;
-		echo $contactName.PHP_EOL;
-		echo $contactPhone.PHP_EOL;
-		echo $faceID.PHP_EOL;
+		//echo $contactName.PHP_EOL;
+		//echo $contactPhone.PHP_EOL;
+		//echo $faceID.PHP_EOL;
 		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
 
@@ -100,7 +100,7 @@
 		file_put_contents("myfile.txt", $contactPhone.PHP_EOL);
 		file_put_contents("myfile.txt", $faceID.PHP_EOL);
 		//$sql = "INSERT INTO LostPersons (name, faceID, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name','$faceID', '$contactName', '$contactPhone', '$lat', '$lon')";
-		echo "Successfully Uploaded".PHP_EOL;
+		//echo "Successfully Uploaded".PHP_EOL;
 	 }
 ?>
 
