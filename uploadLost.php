@@ -40,7 +40,7 @@
 		try    {
 		    //Upload blob
 		    $blobRestProxy->createBlockBlob("photos", $id, $content);
-		    $imgurl = 'https://rakeshphotos.blob.core.windows.net/photos/'.$id;
+		    $imgurl = 'https://rakeshphotos.blob.core.windows.net/photos/'.$id.'.jpg';
 		    //echo "Success! Blob uploaded!".PHP_EOL;
 		}
 		catch(ServiceException $e){
@@ -76,7 +76,7 @@
 
 		// Request body
 		//$request->setBody("{'url':".$imgurl."}");
-		$request->setBody("{'url':'http://hairstyles.thehairstyler.com/hairstyle_views/front_view_images/1195/original/Matt-Damon.jpg'}");
+		$request->setBody("{'url':".$imgurl."}");
 
 		try
 		{
