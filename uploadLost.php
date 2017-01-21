@@ -78,14 +78,14 @@
 		try
 		{
 		    $response = $request->send();
-		    //echo $response->getBody();
+		    //$response->getBody();
 		}
 		catch (HttpException $ex)
 		{
 		    echo $ex;
 		}
 
-		$obj = json_decode($response);
+		$obj = json_decode($response->getBody());
 		print_r($obj);
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
