@@ -9,7 +9,6 @@
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		echo "Hello!";
 		//$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 		// Create blob REST proxy.
@@ -17,7 +16,7 @@
 		//echo "Blob service created".PHP_EOL;
 	 
 		//$image = $_POST['image'];
-		//$name = $_POST['name'];
+		$name = $_POST['name'];
 		//$contactName = $_POST['contactName'];
 		//$contactPhone = $_POST['contactPhone'];
 		//$lat = $_POST['lat'];
@@ -88,7 +87,7 @@
 		}*/
 
 		//$faceID = $request[0]['faceId'];
-	//	echo $name;
+		echo $name;
 		//echo $contactName.PHP_EOL;
 		//echo $contactPhone.PHP_EOL;
 		//echo $faceID.PHP_EOL;
