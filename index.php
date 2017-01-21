@@ -6,7 +6,7 @@ try {
     $query = $conn->prepare('SELECT id FROM test');
     $query->execute();
 	while ($row = $query->fetch()) {
-        echo $row;
+        print_r($row);
 	}
 }
 catch (PDOException $e) {
