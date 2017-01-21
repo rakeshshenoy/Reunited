@@ -35,10 +35,13 @@
 
 		$id++;
 		$content = base64_decode($image);
+		$imgurl = "";
 
 		try    {
 		    //Upload blob
 		    $blobRestProxy->createBlockBlob("photos", $id, $content);
+		    $imgurl = $blobRestProxy->url;
+		    echo $imgurl;
 		    //echo "Success! Blob uploaded!".PHP_EOL;
 		}
 		catch(ServiceException $e){
@@ -73,7 +76,7 @@
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 
 		// Request body
-		$request->setBody("{'url':'http://hairstyles.thehairstyler.com/hairstyle_views/front_view_images/1195/original/Matt-Damon.jpg'}");
+		$request->setBody("{'url':".$imgurl."}");
 
 		try
 		{
