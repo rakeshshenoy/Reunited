@@ -7,9 +7,18 @@ use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
-echo "Hello!";
+	$sql = "CREATE TABLE LostPersons (
+    	id INT PRIMARY KEY, 
+    	name VARCHAR(30) NOT NULL,
+    	faceID VARCHAR(50) NOT NULL,
+    	image VARCHAR(30) NOT NULL,
+    	contactName VARCHAR(30) NOT NULL,
+    	contactPhone VARCHAR(10) CHECK (len(contactPhone)=10) NOT NULL
+    )";
+    $conn->exec($sql);
+    echo "Table created!";
 
-$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
+/*$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 // Create blob REST proxy.
 $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -30,7 +39,7 @@ catch(ServiceException $e){
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
-}
+}*/
 
 /*try {
     /*$query = $conn->prepare("INSERT INTO test  (id,name) VALUES ('2','Snehal')");
