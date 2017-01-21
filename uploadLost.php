@@ -86,9 +86,9 @@
 		    echo $ex;
 		}
 
-		$faceID = $response[0]['faceId'];
+		//$faceID = $response[0]['faceId'];
 		//echo $name.' '.$contactName.' '.$contactPhone;
-		echo $faceID;
+		echo json_encode($response);
 		//echo $faceID.PHP_EOL;
 		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
