@@ -9,20 +9,20 @@
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		//$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
+		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 		// Create blob REST proxy.
-		//$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 		//echo "Blob service created".PHP_EOL;
 	 
-		//$image = $_POST['image'];
+		$image = $_POST['image'];
 		$name = $_POST['name'];
-		//$contactName = $_POST['contactName'];
-		//$contactPhone = $_POST['contactPhone'];
+		$contactName = $_POST['contactName'];
+		$contactPhone = $_POST['contactPhone'];
 		//$lat = $_POST['lat'];
 		//$lon = $_POST['lon'];
 
-		/*$lat = 5;
+		$lat = 5;
 		$lon = 5;
 
 		$query = $conn->prepare('SELECT id FROM LostPersons ORDER BY id ASC');
@@ -48,7 +48,7 @@
 		    $code = $e->getCode();
 		    $error_message = $e->getMessage();
 		    echo $code.": ".$error_message."<br />".PHP_EOL;
-		}*/
+		}
 
 		// Get Face ID using Microsoft
 		/*$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
@@ -87,9 +87,8 @@
 		}*/
 
 		//$faceID = $request[0]['faceId'];
-		echo $name;
-		//echo $contactName.PHP_EOL;
-		//echo $contactPhone.PHP_EOL;
+		//echo $name.' '.$contactName.' '.$contactPhone;
+		echo $image;
 		//echo $faceID.PHP_EOL;
 		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
