@@ -1,15 +1,14 @@
 <?php
-$servername = "rakesh-sql.database.windows.net";
-$username = "rakeshshenoy";
-$password = "Rakesh123";
-$db = "rakesh-db";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
+try {
+    $server = "tcp:rakesh-sql.database.windows.net,1433";
+    $username = "rakeshshenoy@rakesh-sql";
+    $password = "Rakesh123";
+    $dbname = "rakesh-db";
+    $conn = new PDO("mysql:host=$server;dbname=$dbname",$username,$password);
+    echo "Success!\n";
+}
+catch ( PDOException $e ) {
+   print( "Error connecting to SQL Server." );
+   die(print_r($e));
+}
 ?>
