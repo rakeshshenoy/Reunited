@@ -87,18 +87,13 @@
 		    echo $ex;
 		}*/
 
-		$faceID = $request[0]['faceId'];
+		//$faceID = $request[0]['faceId'];
 		echo $name.PHP_EOL;
 		//echo $contactName.PHP_EOL;
 		//echo $contactPhone.PHP_EOL;
 		//echo $faceID.PHP_EOL;
 		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
-
-		file_put_contents("myfile.txt", $name.PHP_EOL);
-		file_put_contents("myfile.txt", $contactName.PHP_EOL);
-		file_put_contents("myfile.txt", $contactPhone.PHP_EOL);
-		file_put_contents("myfile.txt", $faceID.PHP_EOL);
 		//$sql = "INSERT INTO LostPersons (name, faceID, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name','$faceID', '$contactName', '$contactPhone', '$lat', '$lon')";
 		//echo "Successfully Uploaded".PHP_EOL;
 	 }
