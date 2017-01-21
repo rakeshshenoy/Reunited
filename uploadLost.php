@@ -74,7 +74,7 @@
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 
 		// Request body
-		$request->setBody('{$content}');
+		/*$request->setBody('{$content}');
 
 		try
 		{
@@ -86,9 +86,9 @@
 		    echo $ex;
 		}
 
-		$faceID = $response[0]['faceId'];
-		//echo $name.' '.$contactName.' '.$contactPhone;
-		echo $faceID;
+		$faceID = $response[0]['faceId'];*/
+		echo $name.' '.$contactName.' '.$contactPhone;
+		//echo $faceID;
 		//echo $faceID.PHP_EOL;
 		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
