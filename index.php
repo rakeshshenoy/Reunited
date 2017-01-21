@@ -2,7 +2,7 @@
 try {
     $conn = new PDO("sqlsrv:server = tcp:rakesh-sql.database.windows.net,1433; Database = rakesh-db", "rakeshshenoy", "Rakesh123");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = mssql_query('SELECT * FROM test');
+    $query = mssql_query('SELECT id FROM test');
 
 	// Check if there were any records
 	/*if (!mssql_num_rows($query)) {
