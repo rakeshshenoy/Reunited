@@ -1,14 +1,16 @@
 <?php
-	require_once 'vendor/autoload.php';
+	/*require_once 'vendor/autoload.php';
 	require_once 'dbConnect.php';
 	require_once 'HTTP/Request2.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;*/
 
-	if($_SERVER['REQUEST_METHOD']=='POST'){
+	echo "Hello!";
+
+	//if($_SERVER['REQUEST_METHOD']=='POST'){
 
 		//$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
@@ -17,7 +19,7 @@
 		//echo "Blob service created".PHP_EOL;
 	 
 		//$image = $_POST['image'];
-		$name = $_POST['name'];
+		//$name = $_POST['name'];
 		//$contactName = $_POST['contactName'];
 		//$contactPhone = $_POST['contactPhone'];
 		//$lat = $_POST['lat'];
@@ -88,7 +90,7 @@
 		}*/
 
 		//$faceID = $request[0]['faceId'];
-		echo $name;
+	//	echo $name;
 		//echo $contactName.PHP_EOL;
 		//echo $contactPhone.PHP_EOL;
 		//echo $faceID.PHP_EOL;
@@ -96,6 +98,6 @@
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
 		//$sql = "INSERT INTO LostPersons (name, faceID, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name','$faceID', '$contactName', '$contactPhone', '$lat', '$lon')";
 		//echo "Successfully Uploaded".PHP_EOL;
-	 }
+	 //}
 ?>
 
