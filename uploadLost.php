@@ -84,7 +84,7 @@
 		    echo $ex;
 		}
 
-		$jsonstring = $response->getBody()[0];
+		$jsonstring = $response->getBody();
 		echo $jsonstring;
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
