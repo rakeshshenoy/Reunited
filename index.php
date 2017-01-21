@@ -5,14 +5,9 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query = $conn->prepare('SELECT id FROM test');
     $query->execute();
-	// Check if there were any records
-	/*if (!mssql_num_rows($query)) {
-	    echo 'No records found';
-	} else {
-	    while ($row = mssql_fetch_array($query)) {
-        	echo $row['id'], $row['name'], PHP_EOL;
-	    }
-	}*/
+	while ($row = $query->fetch()) {
+        echo $row;
+	}
 }
 catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
