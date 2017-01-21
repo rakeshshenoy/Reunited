@@ -86,9 +86,9 @@
 		    echo $ex;
 		}
 
-		$obj = JSON.parse($response);
+		//$obj = JSON.parse($response);
 		//echo $name.' '.$contactName.' '.$contactPhone;
-		echo $obj.faceId;
+		echo $response;
 		//echo $faceID.PHP_EOL;
 		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
