@@ -7,10 +7,11 @@ use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
-$connectionString = "DefaultEndpointsProtocol='https://rakeshphotos.blob.core.windows.net/';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
+$connectionString = "DefaultEndpointsProtocol=https://rakeshphotos.blob.core.windows.net/;AccountName=rakeshphotos;AccountKey=TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ==";
 
 // Create blob REST proxy.
 $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+echo "Blob service created";
 
 $content = fopen("myfile.txt", "r");
 $blob_name = "testblob";
@@ -18,7 +19,7 @@ $blob_name = "testblob";
 try    {
     //Upload blob
     $blobRestProxy->createBlockBlob("photos", $blob_name, $content);
-    echo "Success!";
+    echo "Success! Blob uploaded!";
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
