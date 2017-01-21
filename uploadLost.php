@@ -8,10 +8,8 @@
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	echo "Hello!";
-
-	//if($_SERVER['REQUEST_METHOD']=='POST'){
-
+	if($_SERVER['REQUEST_METHOD']=='POST'){
+		echo "Hello!";
 		//$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 		// Create blob REST proxy.
@@ -98,6 +96,6 @@
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
 		//$sql = "INSERT INTO LostPersons (name, faceID, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name','$faceID', '$contactName', '$contactPhone', '$lat', '$lon')";
 		//echo "Successfully Uploaded".PHP_EOL;
-	 //}
+	 }
 ?>
 
