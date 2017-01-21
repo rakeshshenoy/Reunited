@@ -2,7 +2,7 @@
 try {
     $conn = new PDO("sqlsrv:server = tcp:rakesh-sql.database.windows.net,1433; Database = rakesh-db", "rakeshshenoy", "Rakesh123");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    /*$query = mssql_query('SELECT [username] FROM [php].[dbo].[userlist]');
+    $query = mssql_query('SELECT * FROM test');
 
 	// Check if there were any records
 	if (!mssql_num_rows($query)) {
@@ -14,7 +14,7 @@ try {
 	}
 
 	// Free the query result
-	mssql_free_result($query);*/
+	mssql_free_result($query);
 }
 catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
