@@ -68,7 +68,7 @@
 		    'returnFaceLandmarks' => 'true'
 		);
 
-		$url->setQueryVariables($parameters);
+		$request->setQueryVariables($parameters);
 
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 
