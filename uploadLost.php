@@ -84,8 +84,8 @@
 		    echo $ex;
 		}
 
-		$json = json_decode($response->getBody());
-		print_r($json);
+		//$json = json_decode($response->getBody());
+		print_r($response->getBody());
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
 		//echo $faceID.PHP_EOL;
