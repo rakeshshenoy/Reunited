@@ -7,16 +7,18 @@ use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
+$connectionString = "DefaultEndpointsProtocol=https://rakeshphotos.blob.core.windows.net/;AccountName=rakeshphotos;AccountKey=TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ==";
+
 // Create blob REST proxy.
 $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-
-$content = fopen("c:\myfile.txt", "r");
-$blob_name = "myblob";
+$content = fopen("myfile.txt", "r");
+$blob_name = "testblob";
 
 try    {
     //Upload blob
     $blobRestProxy->createBlockBlob("photos", $blob_name, $content);
+    echo "Success!";
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -27,21 +29,16 @@ catch(ServiceException $e){
     echo $code.": ".$error_message."<br />";
 }
 
-try {
-    $conn = new PDO("sqlsrv:server = tcp:rakesh-sql.database.windows.net,1433; Database = rakesh-db", "rakeshshenoy", "Rakesh123");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
+/*try {
     /*$query = $conn->prepare("INSERT INTO test  (id,name) VALUES ('2','Snehal')");
     $query->execute();
     $query = $conn->prepare('SELECT * FROM test');
     $query->execute();
 	while ($row = $query->fetch()) {
         echo $row['name'];
-	}*/
+	}
 }
 catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
-}
+}*/
 ?>
