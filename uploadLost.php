@@ -84,7 +84,7 @@
 		    echo $ex;
 		}
 
-		$json = json_decode($response->getBody()[0]);
+		$json = json_decode($response->getBody());
 		print_r($json);
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
