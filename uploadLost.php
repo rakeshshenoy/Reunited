@@ -35,13 +35,12 @@
 
 		$id++;
 		$content = base64_decode($image);
-		$imgurl = "";
+		$imgurl = '';
 
 		try    {
 		    //Upload blob
 		    $blobRestProxy->createBlockBlob("photos", $id, $content);
-		    $imgurl = $blobRestProxy->url;
-		    echo $imgurl;
+		    $imgurl = 'https://rakeshphotos.blob.core.windows.net/photos/'.$id;
 		    //echo "Success! Blob uploaded!".PHP_EOL;
 		}
 		catch(ServiceException $e){
