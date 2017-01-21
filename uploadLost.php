@@ -85,7 +85,7 @@
 		}
 
 		$jsonstring = $response->getBody();
-		echo $jsonstring;
+		echo $jsonstring[0];
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
 		//echo $faceID.PHP_EOL;
