@@ -51,7 +51,7 @@
 		}
 
 		// Get Face ID using Microsoft
-		/*$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
+		$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 		$url = $request->getUrl();
 
 		$headers = array(
@@ -74,21 +74,21 @@
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 
 		// Request body
-		$request->setBody("{body}");
+		$request->setBody($content);
 
 		try
 		{
 		    $response = $request->send();
-		    echo $response->getBody();
+		    //echo $response->getBody();
 		}
 		catch (HttpException $ex)
 		{
 		    echo $ex;
-		}*/
+		}
 
-		//$faceID = $request[0]['faceId'];
+		$faceID = $response[0]['faceId'];
 		//echo $name.' '.$contactName.' '.$contactPhone;
-		echo $image;
+		echo $faceID;
 		//echo $faceID.PHP_EOL;
 		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
