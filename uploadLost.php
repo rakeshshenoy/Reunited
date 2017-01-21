@@ -74,7 +74,7 @@
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 
 		// Request body
-		$request->setBody($content);
+		$request->setBody('{$content}');
 
 		try
 		{
