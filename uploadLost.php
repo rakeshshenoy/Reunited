@@ -76,7 +76,7 @@
 
 		// Request body
 		//$request->setBody("{'url':".$imgurl."}");
-		$request->setBody("{'url':'https://rakeshphotos.blob.core.windows.net/photos/1'}");
+		$request->setBody("{'url':'http://hairstyles.thehairstyler.com/hairstyle_views/front_view_images/1195/original/Matt-Damon.jpg'}");
 
 		try
 		{
