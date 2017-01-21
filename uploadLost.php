@@ -88,7 +88,7 @@
 		}*/
 
 		//$faceID = $request[0]['faceId'];
-		echo $name.PHP_EOL;
+		echo $name;
 		//echo $contactName.PHP_EOL;
 		//echo $contactPhone.PHP_EOL;
 		//echo $faceID.PHP_EOL;
