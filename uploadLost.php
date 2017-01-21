@@ -8,7 +8,7 @@
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	if($_SERVER['REQUEST_METHOD']=='POST'){
+	/*if($_SERVER['REQUEST_METHOD']=='POST'){
 		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 		// Create blob REST proxy.
@@ -48,7 +48,7 @@
 		    $code = $e->getCode();
 		    $error_message = $e->getMessage();
 		    echo $code.": ".$error_message."<br />".PHP_EOL;
-		}
+		}*/
 
 		// Get Face ID using Microsoft
 		$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
