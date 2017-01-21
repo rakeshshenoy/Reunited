@@ -74,7 +74,7 @@
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 
 		// Request body
-		$request->setBody("http://hairstyles.thehairstyler.com/hairstyle_views/front_view_images/1195/original/Matt-Damon.jpg");
+		$request->setBody('{"url":"http://hairstyles.thehairstyler.com/hairstyle_views/front_view_images/1195/original/Matt-Damon.jpg"}');
 
 		try
 		{
