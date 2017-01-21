@@ -84,7 +84,7 @@
 		    echo $ex;
 		}
 
-		$json = $response->getBody()[0];
+		$json = $response->getBody();
 		print_r($json['faceId']);
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
