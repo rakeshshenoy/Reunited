@@ -65,8 +65,7 @@
 		$parameters = array(
 		    // Request parameters
 		    'returnFaceId' => 'true',
-		    'returnFaceLandmarks' => 'true',
-		    'returnFaceAttributes' => '{string}',
+		    'returnFaceLandmarks' => 'true'
 		);
 
 		$url->setQueryVariables($parameters);
