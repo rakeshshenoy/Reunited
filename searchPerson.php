@@ -34,7 +34,7 @@
 
 		// Request body
 		//$request->setBody("{'url':".$imgurl."}");
-		$request->setBody($image);
+		/*$request->setBody($image);
 
 		try
 		{
@@ -43,13 +43,13 @@
 		catch (HttpException $ex)
 		{
 		    echo $ex;
-		}
+		}*/
 
-		$jsonstring = $response->getBody();
-		var_dump($jsonstring);
+		//$jsonstring = $response->getBody();
+		//var_dump($jsonstring);
 		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
 		//$faceID = '';
-		return $jsonstring;
+		return "";
 	}
 
 	//if($_SERVER['REQUEST_METHOD']=='POST'){
