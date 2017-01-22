@@ -41,8 +41,8 @@
 		{
 		    echo $ex;
 		}
-
-		echo $response;
+		echo json_decode($response)[0]->{"faceId"};
+		//echo $response;
 	}
 	catch(ServiceException $e){
 		$code = $e->getCode();
