@@ -42,7 +42,7 @@
 				//var_dump($y);
 				$mainFaceID = json_decode($y)[0]->{"faceId"};
 
-				$id = 21;
+				$id = 22;
 				$blob = $blobRestProxy->getBlob("photos", $id);
 			    $x = $blob->getContentStream();
 			    $request->setBody($x);
