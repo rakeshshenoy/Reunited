@@ -52,7 +52,7 @@
 				//{
 					// Get blob.
 					//$id = $row['id'];
-					$blob = $blobRestProxy->getBlob("photos", 10);
+					/*$blob = $blobRestProxy->getBlob("photos", 10);
 					$x = $blob->getContentStream();
 					$request->setBody($x);
 					try
@@ -64,7 +64,7 @@
 					    echo $ex;
 					}
 					$y = $response->getBody();
-					$faceID = json_decode($y)[0]->{"faceId"};
+					$faceID = json_decode($y)[0]->{"faceId"};*/
 					/*$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 					$url2 = $request2->getUrl();
 
@@ -101,7 +101,7 @@
 					}*/
 				//}	
 
-				echo $faceID."AA".$mainFaceID;
+				echo $mainFaceID;
 				//echo $response;
 			}
 			catch(ServiceException $e){
