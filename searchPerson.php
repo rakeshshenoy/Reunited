@@ -67,7 +67,7 @@
 		//if ($row = $query->fetch()) {
 			try    {
 			    // Get blob.
-			    $blob = $blobRestProxy->getBlob("photos", 7);
+			    $blob = $blobRestProxy->getBlob("photos", '7');
 			    var_dump($blob);
 			    $faceID = getFaceID($blob);
 			    //echo $faceID;
