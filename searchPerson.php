@@ -1,5 +1,5 @@
 <?php
-	//require_once 'HTTP/Request2.php';
+	require_once 'HTTP/Request2.php';
 	require_once 'vendor/autoload.php';
 	//require_once 'dbConnect.php';
 
@@ -8,11 +8,11 @@
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	//function getFaceID($image)
-	//{
+	function getFaceID($image)
+	{
 		// Get Face ID using Microsoft
-	//	echo "hi".PHP_EOL;
-		/*$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
+		echo "hi".PHP_EOL;
+		$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 		$url = $request->getUrl();
 
 		$headers = array(
@@ -30,11 +30,11 @@
 
 		$url->setQueryVariables($parameters);
 
-		$request->setMethod(HTTP_Request2::METHOD_POST);*/
+		$request->setMethod(HTTP_Request2::METHOD_POST);
 
 		// Request body
 		//$request->setBody("{'url':".$imgurl."}");
-		/*$request->setBody($image);
+		$request->setBody($image);
 
 		try
 		{
@@ -43,10 +43,10 @@
 		catch (HttpException $ex)
 		{
 		    echo $ex;
-		}*/
+		}
 
-		//$jsonstring = $response->getBody();
-		//var_dump($jsonstring);
+		$jsonstring = $response->getBody();
+		return $jsonstring;
 		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
 		//$faceID = '';
 	//	return "";
@@ -69,9 +69,8 @@
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", 10);
 			    //fpassthru($blob->getContentStream());
-			    var_dump(base64_encode($blob->getContentStream()));
-			    //$faceID = getFaceID($blob);
-			    //echo $faceID;
+			    $faceID = getFaceID($blob->getContentStream());
+			    var_dump($faceID);
 			    //echo "Hello";
 			}
 			catch(ServiceException $e){
