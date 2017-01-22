@@ -24,15 +24,13 @@
 		$lat = 5;
 		$lon = 5;
 
-		$query = $conn->prepare('SELECT id FROM LostPersons ORDER BY id ASC');
-		$query->execute();
-		$id = 0;
-		
-		while($row = $query->fetch()){
-			$id = $row['id'];
-		}
+		$sql = $conn->prepare("INSERT INTO LostPersons (name, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name', '$contactName', '$contactPhone', '$lat', '$lon')");
+		$sql->execute();
 
-		$id++;
+		$query = $conn->prepare('SELECT id FROM LostPersons WHERE name = '.$name);
+		$query->execute();
+		$row = $query->fetch();
+		$id = $row['id'];
 		$content = base64_decode($image);
 
 		try    {
@@ -49,10 +47,6 @@
 		    echo $code.": ".$error_message."<br />".PHP_EOL;
 		}
 		
-		//echo $name.' '.$contactName.' '.$contactPhone;
-		//echo $response;
-		$sql = $conn->prepare("INSERT INTO LostPersons (name, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name', '$contactName', '$contactPhone', '$lat', '$lon')");
-		$sql->execute();
 		echo "Successfully Uploaded";
 	 }
 ?>
