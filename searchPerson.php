@@ -10,16 +10,16 @@ $url = $request->getUrl();
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806',
+    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
 );
 
 $request->setHeader($headers);
 
-$parameters = array(
+/*$parameters = array(
     // Request parameters
 );
 
-$url->setQueryVariables($parameters);
+$url->setQueryVariables($parameters);*/
 
 $request->setMethod(HTTP_Request2::METHOD_POST);
 
