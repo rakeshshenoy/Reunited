@@ -6,8 +6,8 @@
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	function getFaceID($id)
-	{
+	//function getFaceID($id)
+	//{
 		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='f2HkSZYQm65pkJ9L4ungJqD7FIMU+5oGIdpxug1eL4YQxz7IuS4ZxIA4Q56BfpNBHL4Zo5cBY0kHFQs7yjUtwg=='";
 
 		// Create blob REST proxy.
@@ -35,9 +35,8 @@
 			//$mainFaceID = getFaceID($content);
 			//var_dump($mainFaceID);
 
-			//while
 			// Get blob.
-			$blob = $blobRestProxy->getBlob("photos", $id);
+			$blob = $blobRestProxy->getBlob("photos", 10);
 			$x = $blob->getContentStream();
 			$request->setBody($x);
 			try
@@ -49,16 +48,16 @@
 			    echo $ex;
 			}
 			$y = $response->getBody();
-			return json_decode($y)[0]->{"faceId"};
+			var_dump(json_decode($y)[0]->{"faceId"});
 		}
 		catch(ServiceException $e){
 			$code = $e->getCode();
 			$error_message = $e->getMessage();
 			echo $code.": ".$error_message."<br />";
 		}
-	}
+	//}
 
-	$z = getFaceID(10);
-	var_dump($z);
+	//$z = getFaceID(10);
+	//var_dump($z);
 		
 ?>
