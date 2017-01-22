@@ -11,7 +11,7 @@
 				//$image = $_POST['image'];
 				//$content = base64_decode($image);
 				//$blobRestProxy->createBlockBlob("photos", "test", $content);
-			    $mainblob = $blobRestProxy->getBlob("photos", 10);
+			    $mainblob = $blobRestProxy->getBlob("photos", "test");
 			    $mainimg = $mainblob->getContentStream();
 
 				$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
