@@ -41,7 +41,7 @@
 		{
 		    echo $ex;
 		}
-		var_dump($response);
+		var_dump($response->getBody());
 		//echo $response;
 	}
 	catch(ServiceException $e){
