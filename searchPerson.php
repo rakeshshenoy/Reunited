@@ -68,8 +68,8 @@
 			try    {
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", 10);
-			    fpassthru($blob->getContentStream());
-			    //var_dump(base64_encode($blob));
+			    //fpassthru($blob->getContentStream());
+			    var_dump(base64_encode($blob->getContentStream()));
 			    //$faceID = getFaceID($blob);
 			    //echo $faceID;
 			    //echo "Hello";
