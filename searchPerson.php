@@ -1,16 +1,14 @@
 <?php
-	/*require_once 'HTTP/Request2.php';
+	require_once 'HTTP/Request2.php';
 	require_once 'vendor/autoload.php';
 	require_once 'dbConnect.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
-	use MicrosoftAzure\Storage\Common\ServiceException;*/
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	echo "Hello!";
-
-	/*function getFaceID($image)
+	function getFaceID($image)
 	{
 		// Get Face ID using Microsoft
 		$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
@@ -50,9 +48,9 @@
 		$faceID = json_decode($jsonstring)[0]->{"faceId"};
 		//$faceID = '';
 		return $faceID;
-	}*/
+	}
 
-	/*if($_SERVER['REQUEST_METHOD']=='POST'){
+	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$image = $_POST['image'];
 		//$faceID = getFaceID($image);
 		//echo $faceID;
@@ -81,5 +79,5 @@
 			    echo $code.": ".$error_message."<br />";
 			}
 		}
-	}*/
+	}
 ?>
