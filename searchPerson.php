@@ -34,7 +34,7 @@
 
 		// Request body
 		//$request->setBody("{'url':".$imgurl."}");
-		$request->setBody("{$image}");
+		$request->setBody($image);
 
 		try
 		{
@@ -51,9 +51,8 @@
 	}
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		$image = $_POST['image'];
+		$image = base64_decode($_POST['image']);
 		$faceID = getFaceID($image);
 		echo $faceID;
-		//echo "Hello!";
 	}
 ?>
