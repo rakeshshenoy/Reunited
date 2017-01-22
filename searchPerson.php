@@ -40,7 +40,7 @@
 					    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
 					);
 
-					$request2->setHeader($headers2);
+					/*$request2->setHeader($headers2);
 
 					$parameters2 = array(
 					    'isIdentical' => 'true'
@@ -48,7 +48,7 @@
 
 					$url2->setQueryVariables($parameters2);
 
-					$request2->setMethod(HTTP_Request2::METHOD_POST);
+					$request2->setMethod(HTTP_Request2::METHOD_POST);*/
 
 					// Request body
 					//$request2->setBody("{'faceId1':'1bae8ae8-ab68-452d-8c18-cb41a23213e1','faceId2':'5eedf2ab-f981-41c2-8ead-715d8c4b4d2a'}");
