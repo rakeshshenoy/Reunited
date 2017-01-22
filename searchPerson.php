@@ -50,7 +50,7 @@
 		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
 		//$faceID = '';
 	//	return "";
-	//}
+	}
 
 	//if($_SERVER['REQUEST_METHOD']=='POST'){
 		//$image = $_POST['image'];

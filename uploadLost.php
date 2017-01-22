@@ -46,7 +46,6 @@
 		    $error_message = $e->getMessage();
 		    echo $code.": ".$error_message."<br />".PHP_EOL;
 		}
-		
 		echo "Successfully Uploaded";
 	 }
 ?>
