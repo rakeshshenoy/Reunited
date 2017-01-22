@@ -58,12 +58,12 @@
 		$query = $conn->prepare("SELECT id from LostPersons");
 		$query->execute();
 
-		//$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
+		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 		// Create blob REST proxy.
-		//$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-		/*if ($row = $query->fetch()) {
+		if ($row = $query->fetch()) {
 			try    {
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", $row['id']);
@@ -79,6 +79,6 @@
 			    $error_message = $e->getMessage();
 			    echo $code.": ".$error_message."<br />";
 			}
-		}*/
+		}
 	}
 ?>
