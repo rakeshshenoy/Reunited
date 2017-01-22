@@ -24,8 +24,7 @@
 
 		$parameters = array(
 		    // Request parameters
-		    'returnFaceId' => 'true',
-		    'returnFaceLandmarks' => 'true'
+		    'returnFaceId' => 'true'
 		);
 
 		$url->setQueryVariables($parameters);
@@ -47,12 +46,37 @@
 
 		$jsonstring = $response->getBody();
 		$faceID = json_decode($jsonstring)[0]->{"faceId"};
+		//$faceID = '';
 		return $faceID;
 	}
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$image = $_POST['image'];
-		$faceID = getFaceID($image);
-		echo $faceID;
+		//$faceID = getFaceID($image);
+		//echo $faceID;
+		$query = $conn->prepare("SELECT id from LostPersons");
+		$query->execute();
+
+		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
+
+		// Create blob REST proxy.
+		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
+		while ($row = $query->fetch()) {
+			try    {
+			    // Get blob.
+			    $blob = $blobRestProxy->getBlob("photos", $row['id']);
+			    $faceID = getFaceID($blob);
+			    echo $faceID;
+			}
+			catch(ServiceException $e){
+			    // Handle exception based on error codes and messages.
+			    // Error codes and messages are here:
+			    // http://msdn.microsoft.com/library/azure/dd179439.aspx
+			    $code = $e->getCode();
+			    $error_message = $e->getMessage();
+			    echo $code.": ".$error_message."<br />";
+			}
+		}
 	}
 ?>
