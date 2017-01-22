@@ -13,7 +13,7 @@
 		// Get blob.
 		$blob = $blobRestProxy->getBlob("photos", 10);
 		$x = $blob->getContentStream();
-		echo $x;
+		//echo $x;
 
 		$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 		$url = $request->getUrl();
@@ -32,7 +32,18 @@
 
 		$url->setQueryVariables($parameters);
 		$request->setMethod(HTTP_Request2::METHOD_POST);
-		//$request->setBody($image);
+		$request->setBody($x);
+		try
+		{
+		    $response = $request->send();
+		}
+		catch (HttpException $ex)
+		{
+		    echo $ex;
+		}
+
+		$y = $response->getBody();
+		echo $y;
 	}
 	catch(ServiceException $e){
 		$code = $e->getCode();
