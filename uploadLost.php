@@ -29,8 +29,9 @@
 
 		$query = $conn->prepare('SELECT id FROM LostPersons');
 		$query->execute();
+		$id = 0;
 		while($row = $query->fetch())
-			$id = $row['max(id)'];
+			$id = $row['id'];
 		$id++;
 		$content = base64_decode($image);
 
