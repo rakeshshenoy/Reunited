@@ -64,7 +64,7 @@
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", 10);
 			    //$faceID = getFaceID($blob->getContentStream());
-			    var_dump($blob->getContentStream());
+			    echo $blob->getContentStream();
 			    //echo "Hello";
 			}
 			catch(ServiceException $e){
