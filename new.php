@@ -41,7 +41,8 @@
 		{
 		    echo $ex;
 		}
-		var_dump($response->getBody());
+		$y = $response->getBody();
+		var_dump(json_decode($y)[0]->{"faceId"});
 		//echo $response;
 	}
 	catch(ServiceException $e){
