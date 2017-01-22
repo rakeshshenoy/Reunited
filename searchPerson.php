@@ -13,7 +13,7 @@ $headers = array(
     'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
 );
 
-$request->setHeader($headers);
+//$request->setHeader($headers);
 
 /*$parameters = array(
     // Request parameters
@@ -21,7 +21,7 @@ $request->setHeader($headers);
 
 $url->setQueryVariables($parameters);*/
 
-$request->setMethod(HTTP_Request2::METHOD_POST);
+//$request->setMethod(HTTP_Request2::METHOD_POST);
 
 // Request body
 /*$request->setBody('{
