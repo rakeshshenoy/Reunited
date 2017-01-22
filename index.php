@@ -7,6 +7,8 @@
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
+	echo "Hello!";
+
 	/* Create LostPersons Table
 	$sql = "CREATE TABLE LostPersons (
     	id INT PRIMARY KEY, 
