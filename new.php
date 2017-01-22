@@ -11,7 +11,7 @@
 	try    {
 		// Get blob.
 		$blob = $blobRestProxy->getBlob("photos", 10);
-		echo $blob->getContentStream();
+		var_dump($blob->getContentStream());
 	}
 	catch(ServiceException $e){
 		$code = $e->getCode();
