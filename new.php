@@ -42,7 +42,7 @@
 		    echo $ex;
 		}
 
-		$y = $response->getBody();
+		$y = $response;
 		echo $y;
 	}
 	catch(ServiceException $e){
