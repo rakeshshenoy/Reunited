@@ -8,6 +8,7 @@
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 		//if($_SERVER['REQUEST_METHOD']=='POST'){
 			try    {
+				$blobRestProxy->deleteBlob("photos", "test");
 				$image = $_POST['image'];
 				$content = base64_decode($image);
 				$blobRestProxy->createBlockBlob("photos", "test", $content);
