@@ -53,23 +53,23 @@
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$image = $_POST['image'];
-		$facesID = getFaceID($image);
-		echo $facesID;
-		$query = $conn->prepare("SELECT id from LostPersons");
-		$query->execute();
+		//$facesID = getFaceID($image);
+		//echo $facesID;
+		//$query = $conn->prepare("SELECT id from LostPersons");
+		//$query->execute();
 
 		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 		// Create blob REST proxy.
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-		if ($row = $query->fetch()) {
+		//if ($row = $query->fetch()) {
 			try    {
 			    // Get blob.
-			    $blob = $blobRestProxy->getBlob("photos", $row['id']);
-			    //$faceID = getFaceID($blob);
-			    //echo $faceID;
-			    echo "Hello";
+			    $blob = $blobRestProxy->getBlob("photos", 7);
+			    $faceID = getFaceID($blob);
+			    echo $faceID;
+			    //echo "Hello";
 			}
 			catch(ServiceException $e){
 			    // Handle exception based on error codes and messages.
@@ -79,6 +79,6 @@
 			    $error_message = $e->getMessage();
 			    echo $code.": ".$error_message."<br />";
 			}
-		}
+		//}
 	}
 ?>
