@@ -46,7 +46,6 @@
 		}
 
 		$jsonstring = $response->getBody();
-		var_dump($jsonstring);
 		return $jsonstring;
 		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
 		//$faceID = '';
@@ -71,7 +70,7 @@
 			    $blob = $blobRestProxy->getBlob("photos", 10);
 			    //fpassthru($blob->getContentStream());
 			    $faceID = getFaceID($blob->getContentStream());
-			    //var_dump($faceID);
+			    var_dump($faceID);
 			    //echo "Hello";
 			}
 			catch(ServiceException $e){
