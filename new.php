@@ -8,9 +8,10 @@
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 		//if($_SERVER['REQUEST_METHOD']=='POST'){
 			try    {
-				//$image = $_POST['image'];
-				//$content = base64_decode($image);
-				//$blobRestProxy->createBlockBlob("photos", "test", $content);
+				$blobRestProxy->deleteBlob("photos", "test");
+				$image = $_POST['image'];
+				$content = base64_decode($image);
+				$blobRestProxy->createBlockBlob("photos", "test", $content);
 			    $mainblob = $blobRestProxy->getBlob("photos", "test");
 			    $mainimg = $mainblob->getContentStream();
 
@@ -38,9 +39,9 @@
 				    echo $ex;
 				}
 				$y = $response->getBody();
-				var_dump($y);
-				//$mainFaceID = json_decode($y)[0]->{"faceId"};	
-				//echo $mainFaceID;
+				//var_dump($y);
+				$mainFaceID = json_decode($y)[0]->{"faceId"};	
+				echo $mainFaceID;
 			}
 			catch(ServiceException $e){
 				$code = $e->getCode();
