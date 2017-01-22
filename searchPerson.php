@@ -6,12 +6,12 @@ require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 $url = $request->getUrl();
-echo "1";
-/*$headers = array(
+
+$headers = array(
     // Request headers
     'Content-Type' => 'application/json',
     'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
-);*/
+);
 
 //$request->setHeader($headers);
 
