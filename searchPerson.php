@@ -51,7 +51,7 @@
 	}
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		$image = base64_decode($_POST['image']);
+		$image = $_POST['image'];
 		$faceID = getFaceID($image);
 		echo $faceID;
 	}
