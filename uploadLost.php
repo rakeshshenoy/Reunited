@@ -35,8 +35,7 @@
 
 		$id++;
 		$content = base64_decode($image);
-		$imgurl = file_get_contents($key['tmp_name']);
-		echo $imgurl;
+		echo $content;
 
 		/*try    {
 		    //Upload blob
