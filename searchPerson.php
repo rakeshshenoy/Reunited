@@ -31,9 +31,6 @@
 		$url->setQueryVariables($parameters);
 
 		$request->setMethod(HTTP_Request2::METHOD_POST);
-
-		// Request body
-		//$request->setBody("{'url':".$imgurl."}");
 		$request->setBody($image);
 
 		try
@@ -48,8 +45,6 @@
 		$jsonstring = $response->getBody();
 		return $jsonstring;
 		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
-		//$faceID = '';
-	//	return "";
 	}
 
 	//if($_SERVER['REQUEST_METHOD']=='POST'){
