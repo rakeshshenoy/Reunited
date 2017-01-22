@@ -46,13 +46,14 @@
 		}
 
 		$jsonstring = $response->getBody();
-		$faceID = json_decode($jsonstring)[0]->{"faceId"};
+		var_dump($jsonstring);
+		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
 		//$faceID = '';
-		return $faceID;
+		return $jsonstring;
 	}
 
-	if($_SERVER['REQUEST_METHOD']=='POST'){
-		$image = $_POST['image'];
+	//if($_SERVER['REQUEST_METHOD']=='POST'){
+		//$image = $_POST['image'];
 		//$facesID = getFaceID($image);
 		//echo $facesID;
 		//$query = $conn->prepare("SELECT id from LostPersons");
@@ -68,7 +69,7 @@
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", 7);
 			    $faceID = getFaceID($blob);
-			    echo $faceID;
+			    //echo $faceID;
 			    //echo "Hello";
 			}
 			catch(ServiceException $e){
@@ -80,5 +81,5 @@
 			    echo $code.": ".$error_message."<br />";
 			}
 		//}
-	}
+	//}
 ?>
