@@ -46,5 +46,6 @@
 			echo $code.": ".$error_message."<br />";
 			return NULL;
 		}
+		return NULL;
 	}
 ?>
