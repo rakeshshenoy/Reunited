@@ -1,6 +1,7 @@
 <?php
-	function getFaceID($id)
-	{
+	//function getFaceID($id)
+	//{
+		$id = 10;
 		require_once 'vendor/autoload.php';
 		require_once 'HTTP/Request2.php';
 		use WindowsAzure\Common\ServicesBuilder;
@@ -37,15 +38,15 @@
 			    echo $ex;
 			}
 			$y = $response->getBody();
-			return json_decode($y)[0]->{"faceId"};
+			var_dump(json_decode($y)[0]->{"faceId"});
 			//echo $response;
 		}
 		catch(ServiceException $e){
 			$code = $e->getCode();
 			$error_message = $e->getMessage();
 			echo $code.": ".$error_message."<br />";
-			return NULL;
+			//return NULL;
 		}
-		return NULL;
-	}
+		//return NULL;
+	//}
 ?>
