@@ -8,7 +8,7 @@
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
+		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='f2HkSZYQm65pkJ9L4ungJqD7FIMU+5oGIdpxug1eL4YQxz7IuS4ZxIA4Q56BfpNBHL4Zo5cBY0kHFQs7yjUtwg=='";
 
 		// Create blob REST proxy.
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
