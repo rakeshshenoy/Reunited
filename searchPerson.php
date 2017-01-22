@@ -15,7 +15,7 @@ $request->setHeader($headers);
 
 $parameters = array(
     // Request parameters
-    'isIdentical' => 'true'
+    'returnIsIdentical' => 'true'
 );
 
 $url->setQueryVariables($parameters);
