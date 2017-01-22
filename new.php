@@ -8,7 +8,7 @@
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 		//if($_SERVER['REQUEST_METHOD']=='POST'){
 			try    {
-				/*$blobRestProxy->deleteBlob("photos", "test");
+				$blobRestProxy->deleteBlob("photos", "test");
 				$image = $_POST['image'];
 				$content = base64_decode($image);
 				$blobRestProxy->createBlockBlob("photos", "test", $content);
@@ -56,7 +56,7 @@
 				}
 				$y = $response->getBody();
 				//var_dump($y);
-				$faceID = json_decode($y)[0]->{"faceId"};*/
+				$faceID = json_decode($y)[0]->{"faceId"};
 
 				$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 				$url2 = $request2->getUrl();
@@ -78,25 +78,24 @@
 
 				// Request body
 				$request2->setBody("{
-    'faceId1':'1bae8ae8-ab68-452d-8c18-cb41a23213e1',
-    'faceId2':'5eedf2ab-f981-41c2-8ead-715d8c4b4d2a'
+    'faceId1':'".$faceID."',
+    'faceId2':'".$mainFaceID."'
 }");
 
 				try
 				{
 				    $response2 = $request2->send();
 				    $result = $response2->getBody();
-				    var_dump(json_decode($result)[0]->{'isIdentical'});
-				    //$isIdentical = $result->{'isIdentical'};
-				    //if($isIdentical)
-				    //	echo "True".$id;
+				    $isIdentical = json_decode($result)[0]->{'isIdentical'};
+				    if($isIdentical)
+				    	echo "True".$id;
 				}
 				catch (HttpException $ex)
 				{
 				    echo $ex;
 				}
 
-				//echo "False";
+				echo "False";
 			}
 			catch(ServiceException $e){
 				$code = $e->getCode();
