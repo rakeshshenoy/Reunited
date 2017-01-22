@@ -1,6 +1,7 @@
 <?php
 	//function getFaceID($id)
 	//{
+		$image = $_POST['image'];
 		$id = 18;
 		require_once 'vendor/autoload.php';
 		require_once 'HTTP/Request2.php';
@@ -38,7 +39,8 @@
 			    echo $ex;
 			}
 			$y = $response->getBody();
-			var_dump(json_decode($y)[0]->{"faceId"});
+			$z = json_decode($y)[0]->{"faceId"};
+			echo $z;
 			//echo $response;
 		}
 		catch(ServiceException $e){
