@@ -68,7 +68,7 @@
 			try    {
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", 7);
-			    echo $blob;
+			    var_dump($blob);
 			    $faceID = getFaceID($blob);
 			    //echo $faceID;
 			    //echo "Hello";
