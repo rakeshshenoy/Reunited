@@ -1,8 +1,6 @@
 <?php
 	//function getFaceID($id)
 	//{
-		$image = $_POST['image'];
-		$content = base64_decode($image);
 		$id = 18;
 		require_once 'vendor/autoload.php';
 		require_once 'HTTP/Request2.php';
@@ -13,10 +11,12 @@
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 		try    {
+			/*$image = $_POST['image'];
+			$content = base64_decode($image);
 			$blobRestProxy->createBlockBlob("photos", 0, $content);
 		    $mainblob = $blobRestProxy->getBlob("photos", 0);
 		    $mainimg = $mainblob->getContentStream();
-		    $blobRestProxy->deleteBlob("photos", 0);
+		    $blobRestProxy->deleteBlob("photos", 0);*/
 
 			// Get blob.
 			$blob = $blobRestProxy->getBlob("photos", $id);
@@ -36,7 +36,7 @@
 			);
 			$url->setQueryVariables($parameters);
 			$request->setMethod(HTTP_Request2::METHOD_POST);
-			$request->setBody($mainimg);
+			$request->setBody($x);
 			try
 			{
 			    $response = $request->send();
