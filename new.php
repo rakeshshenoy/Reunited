@@ -10,7 +10,7 @@
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 		try    {
 			// Get blob.
-			$blob = $blobRestProxy->getBlob("photos", 10);
+			$blob = $blobRestProxy->getBlob("photos", $id);
 			$x = $blob->getContentStream();
 			//echo $x;
 			$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
