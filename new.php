@@ -43,7 +43,7 @@
 		}
 
 		$y = $response;
-		echo $y[0];
+		echo $y;
 	}
 	catch(ServiceException $e){
 		$code = $e->getCode();
