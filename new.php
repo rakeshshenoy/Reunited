@@ -78,8 +78,8 @@
 
 				// Request body
 				$request2->setBody("{
-    'faceId1':'".$faceID."',
-    'faceId2':'".$mainFaceID."'
+    'faceId1':'$faceID',
+    'faceId2':'$mainFaceID'
 }");
 
 				try
