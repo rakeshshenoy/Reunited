@@ -6,12 +6,12 @@
 		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='f2HkSZYQm65pkJ9L4ungJqD7FIMU+5oGIdpxug1eL4YQxz7IuS4ZxIA4Q56BfpNBHL4Zo5cBY0kHFQs7yjUtwg=='";
 		// Create blob REST proxy.
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
-		if($_SERVER['REQUEST_METHOD']=='POST'){
+		//if($_SERVER['REQUEST_METHOD']=='POST'){
 			try    {
-				$image = $_POST['image'];
-				$content = base64_decode($image);
-				$blobRestProxy->createBlockBlob("photos", "test", $content);
-			    $mainblob = $blobRestProxy->getBlob("photos", "test");
+				//$image = $_POST['image'];
+				//$content = base64_decode($image);
+				//$blobRestProxy->createBlockBlob("photos", "test", $content);
+			    $mainblob = $blobRestProxy->getBlob("photos", 10);
 			    $mainimg = $mainblob->getContentStream();
 
 				$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
@@ -46,5 +46,5 @@
 				$error_message = $e->getMessage();
 				echo $code.": ".$error_message."<br />";
 			}
-		}
+		//}
 ?>
