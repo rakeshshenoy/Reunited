@@ -38,8 +38,9 @@
 				    echo $ex;
 				}
 				$y = $response->getBody();
-				$mainFaceID = json_decode($y)[0]->{"faceId"};	
-				var_dump($mainFaceID);
+				var_dump($y);
+				//$mainFaceID = json_decode($y)[0]->{"faceId"};	
+				//echo $mainFaceID;
 			}
 			catch(ServiceException $e){
 				$code = $e->getCode();
