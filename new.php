@@ -86,7 +86,7 @@
 				{
 				    $response2 = $request2->send();
 				    $result = $response2->getBody();
-				    var_dump(json_decode($result)->{'isIdentical'});
+				    var_dump(json_decode($result)[0]->{'isIdentical'});
 				    //$isIdentical = $result->{'isIdentical'};
 				    //if($isIdentical)
 				    //	echo "True".$id;
