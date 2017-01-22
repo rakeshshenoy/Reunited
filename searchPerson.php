@@ -66,8 +66,9 @@
 			try    {
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", $row['id']);
-			    $faceID = getFaceID($blob);
-			    echo $faceID;
+			    //$faceID = getFaceID($blob);
+			    //echo $faceID;
+			    echo "Hello";
 			}
 			catch(ServiceException $e){
 			    // Handle exception based on error codes and messages.
