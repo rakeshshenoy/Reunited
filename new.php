@@ -3,7 +3,6 @@
 	//{
 		$image = $_POST['image'];
 		$content = base64_decode($image);
-		//$contentimg = $content->getContentStream();
 		$id = 18;
 		require_once 'vendor/autoload.php';
 		require_once 'HTTP/Request2.php';
@@ -14,18 +13,11 @@
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 		try    {
-		    $blobRestProxy->createBlockBlob("photos", 0, $content);
+			$blobRestProxy->createBlockBlob("photos", 0, $content);
 		    $mainblob = $blobRestProxy->getBlob("photos", 0);
 		    $mainimg = $mainblob->getContentStream();
 		    $blobRestProxy->deleteBlob("photos", 0);
-		}
-		catch(ServiceException $e){
-		    $code = $e->getCode();
-		    $error_message = $e->getMessage();
-		    echo $code.": ".$error_message."<br />".PHP_EOL;
-		}
 
-		try    {
 			// Get blob.
 			$blob = $blobRestProxy->getBlob("photos", $id);
 			$x = $blob->getContentStream();
