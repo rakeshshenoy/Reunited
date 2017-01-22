@@ -13,11 +13,11 @@ $headers = array(
 
 $request->setHeader($headers);
 
-$parameters = array(
+/*$parameters = array(
     // Request parameters
 );
 
-$url->setQueryVariables($parameters);
+$url->setQueryVariables($parameters);*/
 
 $request->setMethod(HTTP_Request2::METHOD_POST);
 
