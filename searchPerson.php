@@ -52,7 +52,8 @@
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$image = $_POST['image'];
-		$faceID = getFaceID($image);
-		echo $faceID;
+		//$faceID = getFaceID($image);
+		//echo $faceID;
+		echo $image;
 	}
 ?>
