@@ -33,7 +33,8 @@
 		}
 
 		$id++;
-		$content = base64_decode($image);
+		//$content = base64_decode($image);
+		$content = $image;
 
 		try    {
 		    //Upload blob
