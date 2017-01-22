@@ -47,14 +47,16 @@
 			$url->setQueryVariables($parameters);
 			$request->setMethod(HTTP_Request2::METHOD_POST);
 
-			$content = base64_decode($image);
-			$mainFaceID = getFaceID($content);
-			var_dump($mainFaceID);
+			//$content = base64_decode($image);
+			//$mainFaceID = getFaceID($content);
+			//var_dump($mainFaceID);
 
 			//while
 			// Get blob.
-			//$blob = $blobRestProxy->getBlob("photos", 10);
-			//$x = $blob->getContentStream();
+			$blob = $blobRestProxy->getBlob("photos", 10);
+			$x = $blob->getContentStream();
+			$faceID = getFaceID($x);
+			var_dump($faceID);
 
 		}
 		catch(ServiceException $e){
