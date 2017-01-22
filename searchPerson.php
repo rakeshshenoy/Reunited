@@ -1,5 +1,4 @@
 <?php
-	echo "hi".PHP_EOL;
 	require_once 'HTTP/Request2.php';
 	require_once 'vendor/autoload.php';
 	require_once 'dbConnect.php';
@@ -12,6 +11,7 @@
 	function getFaceID($image)
 	{
 		// Get Face ID using Microsoft
+		echo "hi".PHP_EOL;
 		$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 		$url = $request->getUrl();
 
