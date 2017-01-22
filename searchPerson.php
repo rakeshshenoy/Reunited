@@ -1,5 +1,5 @@
 <?php
-	echo "hi";
+	echo "hi".PHP_EOL;
 	require_once 'HTTP/Request2.php';
 	require_once 'vendor/autoload.php';
 	require_once 'dbConnect.php';
@@ -68,6 +68,7 @@
 			try    {
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", 7);
+			    echo $blob;
 			    $faceID = getFaceID($blob);
 			    //echo $faceID;
 			    //echo "Hello";
