@@ -30,7 +30,7 @@ $request->setBody({
 try
 {
     $response = $request->send();
-    var_dump($response->getBody());
+    var_dump($response);
 }
 catch (HttpException $ex)
 {
