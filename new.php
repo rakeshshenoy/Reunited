@@ -2,6 +2,7 @@
 	//function getFaceID($id)
 	//{
 		$id = 18;
+		require_once 'dbConnect.php';
 		require_once 'vendor/autoload.php';
 		require_once 'HTTP/Request2.php';
 		use WindowsAzure\Common\ServicesBuilder;
@@ -18,9 +19,6 @@
 			    $mainimg = $mainblob->getContentStream();
 			    //$blobRestProxy->deleteBlob("photos", 0);
 
-				// Get blob.
-				//$blob = $blobRestProxy->getBlob("photos", $id);
-				//$x = $blob->getContentStream();
 				//echo $x;
 				$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 				$url = $request->getUrl();
@@ -46,8 +44,64 @@
 				    echo $ex;
 				}
 				$y = $response->getBody();
-				$z = json_decode($y)[0]->{"faceId"};
-				echo $z;
+				$mainFaceID = json_decode($y)[0]->{"faceId"};
+
+				$query = $conn->prepare('SELECT id from LostPersons');
+				$query->execute();
+				while($row = $query->fetch())
+				{
+					// Get blob.
+					$id = $row['id'];
+					$blob = $blobRestProxy->getBlob("photos", $id);
+					$x = $blob->getContentStream();
+					$request->setBody($x);
+					try
+					{
+					    $response = $request->send();
+					}
+					catch (HttpException $ex)
+					{
+					    echo $ex;
+					}
+					$y = $response->getBody();
+					$faceID = json_decode($y)[0]->{"faceId"};
+					$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
+					$url2 = $request2->getUrl();
+
+					$headers2 = array(
+					    // Request headers
+					    'Content-Type' => 'application/json',
+					    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806',
+					);
+
+					$request2->setHeader($headers2);
+
+					$parameters2 = array(
+					    'isIdentical' => 'true'
+					);
+
+					$url2->setQueryVariables($parameters2);
+
+					$request2->setMethod(HTTP_Request2::METHOD_POST);
+
+					// Request body
+					$request2->setBody("{'faceId1':'$faceID','faceId2':'$mainFaceID'}");
+
+					try
+					{
+					    $response2 = $request2->send();
+					    $result = $response2->getBody();
+					    $isIdentical = $result->{'isIdentical'};
+					    if($isIdentical)
+					    	echo "True".$id;
+					}
+					catch (HttpException $ex)
+					{
+					    echo $ex;
+					}
+				}	
+
+				echo "False";
 				//echo $response;
 			}
 			catch(ServiceException $e){
