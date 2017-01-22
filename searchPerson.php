@@ -12,73 +12,58 @@
 
 	//echo "Hello!";
 
-	/*function getFaceID($image)
-	{
-		// Get Face ID using Microsoft
-		echo "hi".PHP_EOL;
-		$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
-		$url = $request->getUrl();
+	//$query = $conn->prepare('SELECT id from LostPersons');
+				//$query->execute();
+				//while($row = $query->fetch())
+				//{
+					// Get blob.
+					//$id = $row['id'];
+					/*$blob = $blobRestProxy->getBlob("photos", 10);
+					$x = $blob->getContentStream();
+					$request->setBody($x);
+					try
+					{
+					    $response = $request->send();
+					}
+					catch (HttpException $ex)
+					{
+					    echo $ex;
+					}
+					$y = $response->getBody();
+					$faceID = json_decode($y)[0]->{"faceId"};*/
+					/*$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
+					$url2 = $request2->getUrl();
 
-		$headers = array(
-		    // Request headers
-		    'Content-Type' => 'application/octet-stream',
-		    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806',
-		);
+					$headers2 = array(
+					    // Request headers
+					    'Content-Type' => 'application/json',
+					    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
+					);
 
-		$request->setHeader($headers);
+					$request2->setHeader($headers2);
 
-		$parameters = array(
-		    // Request parameters
-		    'returnFaceId' => 'true'
-		);
+					$parameters2 = array(
+					    'isIdentical' => 'true'
+					);
 
-		$url->setQueryVariables($parameters);
+					$url2->setQueryVariables($parameters2);
 
-		$request->setMethod(HTTP_Request2::METHOD_POST);
-		$request->setBody($image);
+					$request2->setMethod(HTTP_Request2::METHOD_POST);
 
-		try
-		{
-		    $response = $request->send();
-		}
-		catch (HttpException $ex)
-		{
-		    echo $ex;
-		}
+					// Request body
+					$request2->setBody("{'faceId1':'".$faceID."','faceId2':'".$mainFaceID."'}");
 
-		$jsonstring = $response->getBody();
-		return $jsonstring;
-		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
-	}*/
-
-	//if($_SERVER['REQUEST_METHOD']=='POST'){
-		//$image = $_POST['image'];
-		//$facesID = getFaceID($image);
-		//echo $facesID;
-		//$query = $conn->prepare("SELECT id from LostPersons");
-		//$query->execute();
-
-		//$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
-
-		// Create blob REST proxy.
-		//$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
-
-		//if ($row = $query->fetch()) {
-			/*try    {
-			    // Get blob.
-			    $blob = $blobRestProxy->getBlob("photos", 10);
-			    //$faceID = getFaceID($blob->getContentStream());
-			    echo $blob->getContentStream();
-			    //echo "Hello";
-			}
-			catch(ServiceException $e){
-			    // Handle exception based on error codes and messages.
-			    // Error codes and messages are here:
-			    // http://msdn.microsoft.com/library/azure/dd179439.aspx
-			    $code = $e->getCode();
-			    $error_message = $e->getMessage();
-			    echo $code.": ".$error_message."<br />";
-			}*/
-		//}
-	//}
+					try
+					{
+					    $response2 = $request2->send();
+					    $result = $response2->getBody();
+					    $isIdentical = $result->{'isIdentical'};
+					    if($isIdentical)
+					    	echo "True".$id;
+					}
+					catch (HttpException $ex)
+					{
+					    echo $ex;
+					}*/
+				//}
 ?>
