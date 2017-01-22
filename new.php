@@ -12,6 +12,19 @@
 		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='f2HkSZYQm65pkJ9L4ungJqD7FIMU+5oGIdpxug1eL4YQxz7IuS4ZxIA4Q56BfpNBHL4Zo5cBY0kHFQs7yjUtwg=='";
 		// Create blob REST proxy.
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
+		try    {
+		    $blobRestProxy->createBlockBlob("photos", 0, $content);
+		    $mainblob = $blobRestProxy->getBlob("photos", 0);
+		    $mainimg = $mainblob->getContentStream();
+		    $blobRestProxy->deleteBlob("photos", 0);
+		}
+		catch(ServiceException $e){
+		    $code = $e->getCode();
+		    $error_message = $e->getMessage();
+		    echo $code.": ".$error_message."<br />".PHP_EOL;
+		}
+
 		try    {
 			// Get blob.
 			$blob = $blobRestProxy->getBlob("photos", $id);
@@ -31,7 +44,7 @@
 			);
 			$url->setQueryVariables($parameters);
 			$request->setMethod(HTTP_Request2::METHOD_POST);
-			$request->setBody($content);
+			$request->setBody($mainimg);
 			try
 			{
 			    $response = $request->send();
