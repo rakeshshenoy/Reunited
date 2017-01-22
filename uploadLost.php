@@ -27,10 +27,10 @@
 		$sql = $conn->prepare("INSERT INTO LostPersons (name, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name', '$contactName', '$contactPhone', '$lat', '$lon')");
 		$sql->execute();
 
-		$query = $conn->prepare('SELECT id FROM LostPersons WHERE name = '.$name);
+		$query = $conn->prepare('SELECT max(id) FROM LostPersons');
 		$query->execute();
 		$row = $query->fetch();
-		$id = $row['id'];
+		$id = $row['max(id)'];
 		$content = base64_decode($image);
 
 		try    {
