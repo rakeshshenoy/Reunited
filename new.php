@@ -16,7 +16,7 @@
 				$blobRestProxy->createBlockBlob("photos", 0, $content);
 			    $mainblob = $blobRestProxy->getBlob("photos", 0);
 			    $mainimg = $mainblob->getContentStream();
-			    $blobRestProxy->deleteBlob("photos", 0);
+			    //$blobRestProxy->deleteBlob("photos", 0);
 
 				// Get blob.
 				//$blob = $blobRestProxy->getBlob("photos", $id);
