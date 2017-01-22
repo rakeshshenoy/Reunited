@@ -60,7 +60,7 @@
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 		//if ($row = $query->fetch()) {
-			try    {
+			/*try    {
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", 10);
 			    //$faceID = getFaceID($blob->getContentStream());
@@ -74,7 +74,7 @@
 			    $code = $e->getCode();
 			    $error_message = $e->getMessage();
 			    echo $code.": ".$error_message."<br />";
-			}
+			}*/
 		//}
 	//}
 ?>
