@@ -8,6 +8,8 @@
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
+	echo "Hello!";
+
 	/*function getFaceID($image)
 	{
 		// Get Face ID using Microsoft
@@ -50,7 +52,7 @@
 		return $faceID;
 	}*/
 
-	if($_SERVER['REQUEST_METHOD']=='POST'){
+	/*if($_SERVER['REQUEST_METHOD']=='POST'){
 		$image = $_POST['image'];
 		//$faceID = getFaceID($image);
 		//echo $faceID;
@@ -79,5 +81,5 @@
 			    echo $code.": ".$error_message."<br />";
 			}
 		}
-	}
+	}*/
 ?>
