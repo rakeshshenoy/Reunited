@@ -1,7 +1,7 @@
 <?php
 	//function getFaceID($id)
 	//{
-		$id = 10;
+		$id = 18;
 		require_once 'vendor/autoload.php';
 		require_once 'HTTP/Request2.php';
 		use WindowsAzure\Common\ServicesBuilder;
