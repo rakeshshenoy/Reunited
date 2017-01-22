@@ -51,16 +51,16 @@
 	}*/
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		$image = $_POST['image'];
+		//$image = $_POST['image'];
 		//$faceID = getFaceID($image);
 		//echo $faceID;
 		$query = $conn->prepare("SELECT id from LostPersons");
 		$query->execute();
 
-		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
+		//$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 		// Create blob REST proxy.
-		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+		//$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 		/*if ($row = $query->fetch()) {
 			try    {
