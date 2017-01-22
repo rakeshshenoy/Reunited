@@ -1,5 +1,5 @@
 <?php
-	/*require_once 'HTTP/Request2.php';
+	require_once 'HTTP/Request2.php';
 	require_once 'vendor/autoload.php';
 	require_once 'dbConnect.php';
 
@@ -48,12 +48,12 @@
 		$jsonstring = $response->getBody();
 		$faceID = json_decode($jsonstring)[0]->{"faceId"};
 		return $faceID;
-	}*/
+	}
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$image = $_POST['image'];
-		//$faceID = getFaceID($image);
-		//echo $faceID;
-		echo "Hello!";
+		$faceID = getFaceID($image);
+		echo $faceID;
+		//echo "Hello!";
 	}
 ?>
