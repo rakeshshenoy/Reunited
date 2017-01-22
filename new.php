@@ -41,7 +41,7 @@
 		{
 		    echo $ex;
 		}
-		var_dump(json_decode($response));
+		var_dump($response);
 		//echo $response;
 	}
 	catch(ServiceException $e){
