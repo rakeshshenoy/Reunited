@@ -46,13 +46,13 @@
 				$y = $response->getBody();
 				$mainFaceID = json_decode($y)[0]->{"faceId"};
 
-				$query = $conn->prepare('SELECT id from LostPersons');
-				$query->execute();
-				while($row = $query->fetch())
-				{
+				//$query = $conn->prepare('SELECT id from LostPersons');
+				//$query->execute();
+				//while($row = $query->fetch())
+				//{
 					// Get blob.
-					$id = $row['id'];
-					$blob = $blobRestProxy->getBlob("photos", $id);
+					//$id = $row['id'];
+					$blob = $blobRestProxy->getBlob("photos", 10);
 					$x = $blob->getContentStream();
 					$request->setBody($x);
 					try
@@ -71,7 +71,7 @@
 					$headers2 = array(
 					    // Request headers
 					    'Content-Type' => 'application/json',
-					    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806',
+					    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
 					);
 
 					$request2->setHeader($headers2);
@@ -85,7 +85,7 @@
 					$request2->setMethod(HTTP_Request2::METHOD_POST);
 
 					// Request body
-					$request2->setBody("{'faceId1':'$faceID','faceId2':'$mainFaceID'}");
+					$request2->setBody("{'faceId1':'".$faceID."','faceId2':'".$mainFaceID."'}");
 
 					try
 					{
@@ -99,7 +99,7 @@
 					{
 					    echo $ex;
 					}
-				}	
+				//}	
 
 				echo "False";
 				//echo $response;
