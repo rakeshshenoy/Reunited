@@ -13,8 +13,8 @@
 			try    {
 				$image = $_POST['image'];
 				$content = base64_decode($image);
-				$blobRestProxy->createBlockBlob("photos", 0, $content);
-			    $mainblob = $blobRestProxy->getBlob("photos", 0);
+				$blobRestProxy->createBlockBlob("photos", '0', $content);
+			    $mainblob = $blobRestProxy->getBlob("photos", '0');
 			    $mainimg = $mainblob->getContentStream();
 			    //$blobRestProxy->deleteBlob("photos", 0);
 
