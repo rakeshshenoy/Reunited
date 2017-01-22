@@ -2,6 +2,8 @@
 	//function getFaceID($id)
 	//{
 		$image = $_POST['image'];
+		$content = base64_decode($image);
+		$contentimg = $content->getContentStream();
 		$id = 18;
 		require_once 'vendor/autoload.php';
 		require_once 'HTTP/Request2.php';
@@ -29,7 +31,7 @@
 			);
 			$url->setQueryVariables($parameters);
 			$request->setMethod(HTTP_Request2::METHOD_POST);
-			$request->setBody($x);
+			$request->setBody($contentimg);
 			try
 			{
 			    $response = $request->send();
