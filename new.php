@@ -65,7 +65,7 @@
 					}
 					$y = $response->getBody();
 					$faceID = json_decode($y)[0]->{"faceId"};
-					$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
+					/*$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 					$url2 = $request2->getUrl();
 
 					$headers2 = array(
@@ -98,10 +98,10 @@
 					catch (HttpException $ex)
 					{
 					    echo $ex;
-					}
+					}*/
 				//}	
 
-				echo "False";
+				echo $faceID."AA".$mainFaceID;
 				//echo $response;
 			}
 			catch(ServiceException $e){
