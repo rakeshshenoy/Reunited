@@ -40,8 +40,24 @@
 				}
 				$y = $response->getBody();
 				//var_dump($y);
-				$mainFaceID = json_decode($y)[0]->{"faceId"};	
-				echo $mainFaceID;
+				$mainFaceID = json_decode($y)[0]->{"faceId"};
+
+				$blob = $blobRestProxy->getBlob("photos", 20);
+			    $x = $blob->getContentStream();
+			    $request->setBody($x);
+				try
+				{
+				    $response = $request->send();
+				}
+				catch (HttpException $ex)
+				{
+				    echo $ex;
+				}
+				$y = $response->getBody();
+				//var_dump($y);
+				$faceID = json_decode($y)[0]->{"faceId"};
+
+				echo $mainFaceID."#".$faceID;
 			}
 			catch(ServiceException $e){
 				$code = $e->getCode();
