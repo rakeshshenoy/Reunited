@@ -35,12 +35,12 @@
 
 		$id++;
 		$content = base64_decode($image);
-		$imgurl = '';
+		$imgurl = file_get_contents($key['tmp_name']);
+		echo $imgurl;
 
-		try    {
+		/*try    {
 		    //Upload blob
 		    $blobRestProxy->createBlockBlob("photos", $id, $content);
-		    $imgurl = 'https://rakeshphotos.blob.core.windows.net/photos/'.$id.'.jpg';
 		    //echo "Success! Blob uploaded!".PHP_EOL;
 		}
 		catch(ServiceException $e){
@@ -97,6 +97,7 @@
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
 		//$sql = "INSERT INTO LostPersons (name, faceID, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name','$faceID', '$contactName', '$contactPhone', '$lat', '$lon')";
 		//echo "Successfully Uploaded".PHP_EOL;
+		*/
 	 }
 ?>
 
