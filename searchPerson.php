@@ -8,7 +8,7 @@
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	function getFaceID($image)
+	/*function getFaceID($image)
 	{
 		// Get Face ID using Microsoft
 		echo "hi".PHP_EOL;
@@ -45,7 +45,7 @@
 		$jsonstring = $response->getBody();
 		return $jsonstring;
 		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
-	}
+	}*/
 
 	//if($_SERVER['REQUEST_METHOD']=='POST'){
 		//$image = $_POST['image'];
