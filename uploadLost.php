@@ -34,7 +34,6 @@
 
 		$id++;
 		$content = base64_decode($image);
-		echo $content;
 
 		try    {
 		    //Upload blob
@@ -52,11 +51,8 @@
 		
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
-		//echo $faceID.PHP_EOL;
-		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
-		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
 		//$sql = "INSERT INTO LostPersons (name, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name', '$contactName', '$contactPhone', '$lat', '$lon')";
-		//echo "Successfully Uploaded".PHP_EOL;
+		echo "Successfully Uploaded";
 	 }
 ?>
 
