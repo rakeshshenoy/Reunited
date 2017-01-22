@@ -8,10 +8,10 @@
 	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	function getFaceID($image)
-	{
+	//function getFaceID($image)
+	//{
 		// Get Face ID using Microsoft
-		echo "hi".PHP_EOL;
+	//	echo "hi".PHP_EOL;
 		/*$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 		$url = $request->getUrl();
 
@@ -49,8 +49,8 @@
 		//var_dump($jsonstring);
 		//$faceID = json_decode($jsonstring)[0]->{"faceId"};
 		//$faceID = '';
-		return "";
-	}
+	//	return "";
+	//}
 
 	//if($_SERVER['REQUEST_METHOD']=='POST'){
 		//$image = $_POST['image'];
@@ -69,7 +69,7 @@
 			    // Get blob.
 			    $blob = $blobRestProxy->getBlob("photos", 10);
 			    //var_dump(base64_encode($blob));
-			    $faceID = getFaceID($blob);
+			    //$faceID = getFaceID($blob);
 			    //echo $faceID;
 			    //echo "Hello";
 			}
