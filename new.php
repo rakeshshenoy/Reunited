@@ -6,24 +6,8 @@
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	function getFaceID($x)
+	function getFaceID($id)
 	{
-		$request->setBody($x);
-		try
-		{
-		    $response = $request->send();
-		}
-		catch (HttpException $ex)
-		{
-		    echo $ex;
-		}
-		$y = $response->getBody();
-		return json_decode($y)[0]->{"faceId"};
-	}
-
-	if($_SERVER['REQUEST_METHOD']=='POST'){
-		$image = $_POST['image'];
-
 		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='f2HkSZYQm65pkJ9L4ungJqD7FIMU+5oGIdpxug1eL4YQxz7IuS4ZxIA4Q56BfpNBHL4Zo5cBY0kHFQs7yjUtwg=='";
 
 		// Create blob REST proxy.
@@ -53,11 +37,19 @@
 
 			//while
 			// Get blob.
-			$blob = $blobRestProxy->getBlob("photos", 10);
+			$blob = $blobRestProxy->getBlob("photos", $id);
 			$x = $blob->getContentStream();
-			$faceID = getFaceID($x);
-			var_dump($faceID);
-
+			$request->setBody($x);
+			try
+			{
+			    $response = $request->send();
+			}
+			catch (HttpException $ex)
+			{
+			    echo $ex;
+			}
+			$y = $response->getBody();
+			return json_decode($y)[0]->{"faceId"};
 		}
 		catch(ServiceException $e){
 			$code = $e->getCode();
@@ -65,4 +57,8 @@
 			echo $code.": ".$error_message."<br />";
 		}
 	}
+
+	$z = getFaceID(10);
+	var_dump($z);
+		
 ?>
