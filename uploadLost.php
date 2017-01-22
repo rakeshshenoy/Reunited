@@ -51,7 +51,8 @@
 		
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
-		//$sql = "INSERT INTO LostPersons (name, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name', '$contactName', '$contactPhone', '$lat', '$lon')";
+		$sql = $conn->prepare("INSERT INTO LostPersons (name, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name', '$contactName', '$contactPhone', '$lat', '$lon')");
+		$sql->execute();
 		echo "Successfully Uploaded";
 	 }
 ?>
