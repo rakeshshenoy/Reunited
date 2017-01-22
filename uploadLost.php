@@ -1,7 +1,6 @@
 <?php
 	require_once 'vendor/autoload.php';
 	require_once 'dbConnect.php';
-	require_once 'HTTP/Request2.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
@@ -37,7 +36,7 @@
 		$content = base64_decode($image);
 		echo $content;
 
-		/*try    {
+		try    {
 		    //Upload blob
 		    $blobRestProxy->createBlockBlob("photos", $id, $content);
 		    //echo "Success! Blob uploaded!".PHP_EOL;
@@ -50,53 +49,14 @@
 		    $error_message = $e->getMessage();
 		    echo $code.": ".$error_message."<br />".PHP_EOL;
 		}
-
-		// Get Face ID using Microsoft
-		$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
-		$url = $request->getUrl();
-
-		$headers = array(
-		    // Request headers
-		    'Content-Type' => 'application/json',
-		    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806',
-		);
-
-		$request->setHeader($headers);
-
-		$parameters = array(
-		    // Request parameters
-		    'returnFaceId' => 'true',
-		    'returnFaceLandmarks' => 'true'
-		);
-
-		$url->setQueryVariables($parameters);
-
-		$request->setMethod(HTTP_Request2::METHOD_POST);
-
-		// Request body
-		//$request->setBody("{'url':".$imgurl."}");
-		$request->setBody("{'url':".$imgurl."}");
-
-		try
-		{
-		    $response = $request->send();
-		}
-		catch (HttpException $ex)
-		{
-		    echo $ex;
-		}
-
-		$jsonstring = $response->getBody();
-		$faceID = json_decode($jsonstring)[0]->{"faceId"};
-		echo $faceID;		
+		
 		//echo $name.' '.$contactName.' '.$contactPhone;
 		//echo $response;
 		//echo $faceID.PHP_EOL;
 		//echo $request[0]['faceLandmarks']['pupilLeft']['x'].PHP_EOL;
 		//echo $request[1]['faceAttributes']['age'].PHP_EOL;
-		//$sql = "INSERT INTO LostPersons (name, faceID, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name','$faceID', '$contactName', '$contactPhone', '$lat', '$lon')";
+		//$sql = "INSERT INTO LostPersons (name, contactName, contactPhone, lastSeenLat, lastSeenLon) VALUES ('$name', '$contactName', '$contactPhone', '$lat', '$lon')";
 		//echo "Successfully Uploaded".PHP_EOL;
-		*/
 	 }
 ?>
 
