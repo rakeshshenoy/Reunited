@@ -1,12 +1,12 @@
 <?php
-	//require_once 'HTTP/Request2.php';
-	//require_once 'vendor/autoload.php';
-	//require_once 'dbConnect.php';
+	require_once 'HTTP/Request2.php';
+	require_once 'vendor/autoload.php';
+	require_once 'dbConnect.php';
 
-	//use WindowsAzure\Common\ServicesBuilder;
-	//use MicrosoftAzure\Storage\Common\ServiceException;
+	use WindowsAzure\Common\ServicesBuilder;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
-	echo "Hello!";
+	//echo "Hello!";
 
 	/*function getFaceID($image)
 	{
@@ -54,10 +54,10 @@
 		//$query = $conn->prepare("SELECT id from LostPersons");
 		//$query->execute();
 
-		//$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
+		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='TsV+ILARvx/vtkRg9eM7j6REB517SAu9ne8jzvuTtILRUSV0fEKKqbwwE1iPqkLR73xt3vgoTCzgHXyeeVTxDQ=='";
 
 		// Create blob REST proxy.
-		//$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 		//if ($row = $query->fetch()) {
 			/*try    {
