@@ -2,7 +2,7 @@
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 require_once 'HTTP/Request2.php';
 
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
+$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 $url = $request->getUrl();
 
 $headers = array(
