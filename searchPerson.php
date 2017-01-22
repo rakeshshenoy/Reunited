@@ -52,9 +52,9 @@
 	}
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		//$image = $_POST['image'];
-		//$faceID = getFaceID($image);
-		//echo $faceID;
+		$image = $_POST['image'];
+		$facesID = getFaceID($image);
+		echo $facesID;
 		$query = $conn->prepare("SELECT id from LostPersons");
 		$query->execute();
 
