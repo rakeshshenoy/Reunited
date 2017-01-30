@@ -20,9 +20,8 @@ $params .= 'subscription-key=' . API_PRIMARY_KEY;
 $post_url = API_BASE_URL . $params;
 
 $ch = curl_init();
-    curl_setopt( $ch, CURLOPT_HTTPHEADER, array(                                                                          
-        'Content-Type: application/json',                                                                                
-        'Content-Length: ' . strlen($post_string))
+    curl_setopt( $ch, CURLOPT_HTTPHEADER, array(                                          
+        'Content-Type: application/json'
     );    
 
     curl_setopt( $ch, CURLOPT_URL, $post_url );
