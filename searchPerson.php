@@ -13,20 +13,20 @@ $headers = array(
     'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
 );
 
-//$request->setHeader($headers);
+$request->setHeader($headers);
 
-/*$parameters = array(
+$parameters = array(
     // Request parameters
 );
 
-$url->setQueryVariables($parameters);*/
+$url->setQueryVariables($parameters);
 
-//$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setMethod(HTTP_Request2::METHOD_POST);
 
 // Request body
-/*$request->setBody('{
-    "faceId1":"1bae8ae8-ab68-452d-8c18-cb41a23213e1",
-    "faceId2":"5eedf2ab-f981-41c2-8ead-715d8c4b4d2a"
+$request->setBody('{
+    "faceId1":"fb7fa7f9-7a7b-484c-b7db-0593b3747cfb",
+    "faceId2":"706a8182-18c0-4575-93ca-76b2adabe35f"
 }');
 
 try
