@@ -1,6 +1,6 @@
 <?php
 
-echo "Hello!";
+//echo "Hello!";
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 require_once 'HTTP/Request2.php';
 
