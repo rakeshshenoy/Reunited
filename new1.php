@@ -1,9 +1,9 @@
 <?php
-define( 'API_BASE_URL',     'https://westus.api.cognitive.microsoft.com/face/v1.0/verify?' );
+define( 'API_BASE_URL',     'https://westus.api.cognitive.microsoft.com/face/v1.0/verify' );
 //define( 'API_PRIMARY_KEY',      'dd51642516ac431a9c593b4c78b8a806' );
 //$img = 'YOUR IMAGE URL HERE';
 
-$post_string = '{"faceId1":"'fb7fa7f9-7a7b-484c-b7db-0593b3747cfb'","faceId2":"'706a8182-18c0-4575-93ca-76b2adabe35f'"}';
+$post_string = '{"faceId1":"fb7fa7f9-7a7b-484c-b7db-0593b3747cfb","faceId2":"706a8182-18c0-4575-93ca-76b2adabe35f"}';
 
 //$query_params = array(
 //);
@@ -31,4 +31,5 @@ curl_close( $ch );
 
 print_r( '<pre>' );
 print_r( $response );
+
 ?>
