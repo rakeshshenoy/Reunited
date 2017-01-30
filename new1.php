@@ -32,6 +32,6 @@ $ch = curl_init();
     $response = curl_exec( $ch );
 curl_close( $ch );
 
-print_r( '<pre>' );
-print_r( $response );
+//print_r( '<pre>' );
+var_dump( $response );
 ?>
