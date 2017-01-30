@@ -1,8 +1,8 @@
 <?php
 
-//echo "Hello!";
+echo "Hello!";
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
-require_once 'HTTP/Request2.php';
+/*require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 $url = $request->getUrl();
@@ -21,7 +21,7 @@ $parameters = array(
 
 $url->setQueryVariables($parameters);
 
-$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setMethod(HTTP_Request2::METHOD_POST);*/
 
 //$obj = new stdClass();
 //$obj->faceId1 = "fb7fa7f9-7a7b-484c-b7db-0593b3747cfb";
