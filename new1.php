@@ -19,7 +19,7 @@ $post_url = API_BASE_URL;
 $ch = curl_init();
     curl_setopt( $ch, CURLOPT_HTTPHEADER, array(                                                                          
         'Content-Type: application/json',
-        'Ocp-Apim-Subscription-Key: {dd51642516ac431a9c593b4c78b8a806}'
+        'Ocp-Apim-Subscription-Key: {dd51642516ac431a9c593b4c78b8a806}',
     );    
 
     curl_setopt( $ch, CURLOPT_URL, $post_url );
