@@ -1,14 +1,34 @@
 <?php
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
-require_once 'HTTP/Request2.php';
+define( 'API_BASE_URL',     'https://westus.api.cognitive.microsoft.com/face/v1.0/verify?' );
+define( 'API_PRIMARY_KEY',      'dd51642516ac431a9c593b4c78b8a806' );
+$img = 'YOUR IMAGE URL HERE';
 
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
-$url = $request->getUrl();
+$post_string = '{"url":"' . $img . '"}';
 
-$headers = array(
-    // Request headers
-    'Content-Type' => 'application/json',
-    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806',
+$query_params = array(
 );
 
+$params = '';
+foreach( $query_params as $key => $value ) {
+    $params .= $key . '=' . $value . '&';
+}
+$params .= 'subscription-key=' . API_PRIMARY_KEY;
+
+$post_url = API_BASE_URL . $params;
+
+$ch = curl_init();
+    curl_setopt( $ch, CURLOPT_HTTPHEADER, array(                                                                          
+        'Content-Type: application/json',                                                                                
+        'Content-Length: ' . strlen($post_string))
+    );    
+
+    curl_setopt( $ch, CURLOPT_URL, $post_url );
+    curl_setopt( $ch, CURLOPT_POST, true );
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, $post_string );
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $response = curl_exec( $ch );
+curl_close( $ch );
+
+print_r( '<pre>' );
+print_r( $response );
 ?>
