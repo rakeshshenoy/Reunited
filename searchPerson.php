@@ -24,7 +24,7 @@ $request->setMethod(HTTP_Request2::METHOD_POST);
 echo "Hello!";
 
 // Request body
-/*$request->setBody('{
+$request->setBody('{
     "faceId1":"fb7fa7f9-7a7b-484c-b7db-0593b3747cfb",
     "faceId2":"706a8182-18c0-4575-93ca-76b2adabe35f"
 }');
@@ -37,5 +37,5 @@ try
 catch (HttpException $ex)
 {
     echo $ex;
-}*/
+}
 ?>
