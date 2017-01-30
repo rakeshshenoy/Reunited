@@ -2,7 +2,7 @@
 
 echo "Hello!"
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
-require_once 'HTTP/Request2.php';
+/*require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 $url = $request->getUrl();
@@ -28,10 +28,10 @@ $obj->faceId1 = "fb7fa7f9-7a7b-484c-b7db-0593b3747cfb";
 $obj->faceId2 = "706a8182-18c0-4575-93ca-76b2adabe35f";
 
 // Request body
-/*$request->setBody('{
+$request->setBody('{
     "faceId1":"fb7fa7f9-7a7b-484c-b7db-0593b3747cfb",
     "faceId2":"706a8182-18c0-4575-93ca-76b2adabe35f"
-}');*/
+}');
 
 $request->setBody(json_encode($obj));
 
@@ -43,6 +43,6 @@ try
 catch (HttpException $ex)
 {
     echo $ex;
-}
+}*/
 
 ?>
