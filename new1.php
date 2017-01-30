@@ -3,7 +3,7 @@ define( 'API_BASE_URL',     'https://westus.api.cognitive.microsoft.com/face/v1.
 define( 'API_PRIMARY_KEY',      'dd51642516ac431a9c593b4c78b8a806' );
 //$img = 'http://media.gq.com/photos/5711559a3c2c86f474dc6d5a/master/pass/chris-paul-3.jpg';
 $faceId1 = 'fb7fa7f9-7a7b-484c-b7db-0593b3747cfb';
-$faceId2 = '706a8182-18c0-4575-93ca-76b2adabe35f';
+$faceId2 = 'fb7fa7f9-7a7b-484c-b7db-0593b3747cfb';
 
 //$post_string = '{"url":"' . $img . '"}';
 $post_string = '{"faceId1":"' . $faceId1 . '", "faceId2":"' . $faceId2 . '"}';
