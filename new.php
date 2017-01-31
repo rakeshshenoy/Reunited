@@ -20,7 +20,7 @@
 				$url = $request->getUrl();
 				$headers = array(
 				    // Request headers
-				    'Content-Type' => 'application/octet-stream',
+				    'Content-Type' => 'application/json',
 				    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806',
 				);
 				$request->setHeader($headers);
