@@ -64,6 +64,7 @@
 					//var_dump($y);
 					$faceID = json_decode($y);
 					$faceID = $faceID[0]->{"faceId"};
+					echo $faceID;
 
 					$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 					$url2 = $request2->getUrl();
