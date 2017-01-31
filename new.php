@@ -6,14 +6,14 @@
 		$connectionString = "DefaultEndpointsProtocol='https';AccountName='rakeshphotos';AccountKey='f2HkSZYQm65pkJ9L4ungJqD7FIMU+5oGIdpxug1eL4YQxz7IuS4ZxIA4Q56BfpNBHL4Zo5cBY0kHFQs7yjUtwg=='";
 		// Create blob REST proxy.
 		$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
-		//if($_SERVER['REQUEST_METHOD']=='POST'){
+		if($_SERVER['REQUEST_METHOD']=='POST'){
 			try    {
-				/*$blobRestProxy->deleteBlob("photos", "test");
+				$blobRestProxy->deleteBlob("photos", "test");
 				$image = $_POST['image'];
 				$content = base64_decode($image);
 				$blobRestProxy->createBlockBlob("photos", "test", $content);
 			    $mainblob = $blobRestProxy->getBlob("photos", "test");
-			    $mainimg = $mainblob->getContentStream();*/
+			    $mainimg = $mainblob->getContentStream();
 
 				$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 				$url = $request->getUrl();
@@ -29,7 +29,7 @@
 				);
 				$url->setQueryVariables($parameters);
 				$request->setMethod(HTTP_Request2::METHOD_POST);
-				/*$request->setBody($mainimg);
+				$request->setBody($mainimg);
 				try
 				{
 				    $response = $request->send();
@@ -40,7 +40,7 @@
 				}
 				$y = $response->getBody();
 				//var_dump($y);
-				$mainFaceID = json_decode($y)[0]->{"faceId"};*/
+				$mainFaceID = json_decode($y)[0]->{"faceId"};
 
 				$id = 22;
 				$blob = $blobRestProxy->getBlob("photos", $id);
@@ -58,12 +58,49 @@
 				var_dump($y);
 				$faceID = json_decode($y)[0]->{"faceId"};
 
-				echo $faceID;
+				$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
+				$url2 = $request2->getUrl();
+
+				$headers2 = array(
+				    // Request headers
+				    'Content-Type' => 'application/json',
+				    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
+				);
+
+				$request2->setHeader($headers2);
+
+				$parameters2 = array(
+				);
+
+				$url2->setQueryVariables($parameters2);
+
+				$request2->setMethod(HTTP_Request2::METHOD_POST);
+
+				// Request body
+				$request2->setBody("{
+    'faceId1':'$faceID',
+    'faceId2':'$mainFaceID'
+}");
+
+				try
+				{
+				    $response2 = $request2->send();
+				    $result = $response2->getBody();
+				    $isIdentical = json_decode($result)[0]->{'isIdentical'};
+				    if($isIdentical)
+				    	echo "True".$id;
+				    else
+				    	echo "False";
+				}
+				catch (HttpException $ex)
+				{
+				    echo $ex;
+				}
 			}
 			catch(ServiceException $e){
 				$code = $e->getCode();
 				$error_message = $e->getMessage();
 				echo $code.": ".$error_message."<br />";
 			}
-		//}
+		}
 ?>
