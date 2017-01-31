@@ -55,7 +55,7 @@
 				    echo $ex;
 				}
 				$y = $response->getBody();
-				var_dump($y);
+				//var_dump($y);
 				$faceID = json_decode($y)[0]->{"faceId"};
 
 				$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
@@ -86,11 +86,12 @@
 				{
 				    $response2 = $request2->send();
 				    $result = $response2->getBody();
-				    $isIdentical = json_decode($result)[0]->{'isIdentical'};
+				    echo $result;
+				    /*$isIdentical = json_decode($result)[0]->{'isIdentical'};
 				    if($isIdentical)
 				    	echo "True".$id;
 				    else
-				    	echo "False";
+				    	echo "False";*/
 				}
 				catch (HttpException $ex)
 				{
