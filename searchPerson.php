@@ -33,7 +33,7 @@ try
 {
     $response = $request->send();
     $x = json_decode($response->getBody(), true);
-    echo($x["isIdentical"]);
+    echo($x["confidence"]);
 }
 catch (HttpException $ex)
 {
