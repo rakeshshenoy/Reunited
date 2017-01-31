@@ -89,19 +89,18 @@
 					try
 					{
 					    $response2 = $request2->send();
-					    $result = $response2->getBody();
-					    echo $result;
-					    /*$isIdentical = json_decode($result)[0]->{'isIdentical'};
+					    $result = json_decode($response2->getBody(), true);
+					    //echo $result;
+					    $isIdentical = $result["isIdentical"];
 					    if($isIdentical)
 					    	echo "True".$id;
-					    else
-					    	echo "False";*/
 					}
 					catch (HttpException $ex)
 					{
 					    echo $ex;
 					}
 				}
+				echo "False";
 			}
 			catch(ServiceException $e){
 				$code = $e->getCode();
