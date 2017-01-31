@@ -62,7 +62,8 @@
 					}
 					$y = $response->getBody();
 					//var_dump($y);
-					$faceID = json_decode($y)[0]->{"faceId"};
+					$faceID = json_decode($y);
+					$faceID = $faceID[0]->{"faceId"};
 
 					$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 					$url2 = $request2->getUrl();
@@ -83,10 +84,10 @@
 					$request2->setMethod(HTTP_Request2::METHOD_POST);
 
 					// Request body
-					$request2->setBody("{
-	    'faceId1':'$faceID',
-	    'faceId2':'$mainFaceID'
-	}");
+					$request2->setBody('{
+	    "faceId1":"'.$faceID.'",
+	    "faceId2":"'.$mainFaceID.'"
+	}');
 
 					try
 					{
