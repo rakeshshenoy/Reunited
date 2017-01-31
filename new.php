@@ -43,7 +43,7 @@
 				//var_dump($y);
 				$mainFaceID = json_decode($y);
 				$mainFaceID = $mainFaceID[0]->{"faceId"};
-				echo $mainFaceID;
+				//echo $mainFaceID;
 
 				$query = $conn->prepare('SELECT id FROM test');
 	    		$query->execute();
