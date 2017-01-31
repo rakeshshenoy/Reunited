@@ -40,7 +40,7 @@
 				    echo $ex;
 				}
 				$y = $response->getBody();
-				echo $y;
+				echo json_decode($y)[0]->{"faceId"};
 				//var_dump($y);
 				//$mainFaceID = json_decode($y, true);
 				//$mainFaceID = $mainFaceID[0]["faceId"];
