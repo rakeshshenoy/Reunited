@@ -20,7 +20,7 @@
 				$url = $request->getUrl();
 				$headers = array(
 				    // Request headers
-				    'Content-Type' => 'application/json',
+				    'Content-Type' => 'application/octet-stream',
 				    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806',
 				);
 				$request->setHeader($headers);
@@ -40,9 +40,10 @@
 				    echo $ex;
 				}
 				$y = $response->getBody();
+				echo $y;
 				//var_dump($y);
-				$mainFaceID = json_decode($y, true);
-				$mainFaceID = $mainFaceID[0]["faceId"];
+				//$mainFaceID = json_decode($y, true);
+				//$mainFaceID = $mainFaceID[0]["faceId"];
 
 				$query = $conn->prepare('SELECT id FROM test');
 	    		$query->execute();
