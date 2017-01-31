@@ -33,7 +33,7 @@ try
 {
     $response = $request->send();
     $x = json_decode($response->getBody());
-    var_dump($x[0]);
+    var_dump($x['isIdentical']);
 }
 catch (HttpException $ex)
 {
