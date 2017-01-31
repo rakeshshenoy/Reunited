@@ -1,36 +1,38 @@
-<?php
-define( 'API_BASE_URL',     'https://westus.api.cognitive.microsoft.com/face/v1.0/verify?' );
-define( 'API_PRIMARY_KEY',      'dd51642516ac431a9c593b4c78b8a806' );
-//$img = 'http://media.gq.com/photos/5711559a3c2c86f474dc6d5a/master/pass/chris-paul-3.jpg';
-$faceId1 = 'fb7fa7f9-7a7b-484c-b7db-0593b3747cfb';
-$faceId2 = 'fb7fa7f9-7a7b-484c-b7db-0593b3747cfb';
+/*$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
+				$url2 = $request2->getUrl();
 
-//$post_string = '{"url":"' . $img . '"}';
-$post_string = '{"faceId1":"' . $faceId1 . '", "faceId2":"' . $faceId2 . '"}';
+				$headers2 = array(
+				    // Request headers
+				    'Content-Type' => 'application/json',
+				    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
+				);
 
-$query_params = array(
-);
+				$request2->setHeader($headers2);
 
-$params = '';
-/*foreach( $query_params as $key => $value ) {
-    $params .= $key . '=' . $value . '&';
-}*/
-$params .= 'subscription-key=' . API_PRIMARY_KEY;
+				$parameters2 = array(
+				);
 
-$post_url = API_BASE_URL . $params;
+				$url2->setQueryVariables($parameters2);
 
-$ch = curl_init();
-    curl_setopt( $ch, CURLOPT_HTTPHEADER, array(                                                                          
-        'Content-Type: application/json')
-    );    
+				$request2->setMethod(HTTP_Request2::METHOD_POST);
 
-    curl_setopt( $ch, CURLOPT_URL, $post_url );
-    curl_setopt( $ch, CURLOPT_POST, true );
-    curl_setopt( $ch, CURLOPT_POSTFIELDS, $post_string );
-    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-    $response = curl_exec( $ch );
-curl_close( $ch );
+				// Request body
+				$request2->setBody("{
+    'faceId1':'$faceID',
+    'faceId2':'$mainFaceID'
+}");
 
-//print_r( '<pre>' );
-var_dump( $response );
-?>
+				try
+				{
+				    $response2 = $request2->send();
+				    $result = $response2->getBody();
+				    $isIdentical = json_decode($result)[0]->{'isIdentical'};
+				    if($isIdentical)
+				    	echo "True".$id;
+				}
+				catch (HttpException $ex)
+				{
+				    echo $ex;
+				}
+
+				echo "False";
