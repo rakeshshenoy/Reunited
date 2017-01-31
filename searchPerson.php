@@ -32,8 +32,8 @@ $request->setBody('{
 try
 {
     $response = $request->send();
-    $x = json_decode($response->getBody());
-    var_dump($x['isIdentical']);
+    $x = json_decode($response->getBody(), true);
+    var_dump($x[0]);
 }
 catch (HttpException $ex)
 {
