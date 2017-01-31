@@ -1,4 +1,5 @@
 <?php
+		require_once 'dbConnect.php'
 		require_once 'vendor/autoload.php';
 		require_once 'HTTP/Request2.php';
 		use WindowsAzure\Common\ServicesBuilder;
@@ -42,60 +43,64 @@
 				//var_dump($y);
 				$mainFaceID = json_decode($y)[0]->{"faceId"};
 
-				$id = 22;
-				$blob = $blobRestProxy->getBlob("photos", $id);
-			    $x = $blob->getContentStream();
-			    $request->setBody($x);
-				try
-				{
-				    $response = $request->send();
-				}
-				catch (HttpException $ex)
-				{
-				    echo $ex;
-				}
-				$y = $response->getBody();
-				//var_dump($y);
-				$faceID = json_decode($y)[0]->{"faceId"};
+				$query = $conn->prepare('SELECT id FROM test');
+	    		$query->execute();
+				while ($id = $query->fetch()) {
+					//$id = 22;
+					$blob = $blobRestProxy->getBlob("photos", $id);
+				    $x = $blob->getContentStream();
+				    $request->setBody($x);
+					try
+					{
+					    $response = $request->send();
+					}
+					catch (HttpException $ex)
+					{
+					    echo $ex;
+					}
+					$y = $response->getBody();
+					//var_dump($y);
+					$faceID = json_decode($y)[0]->{"faceId"};
 
-				$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
-				$url2 = $request2->getUrl();
+					$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
+					$url2 = $request2->getUrl();
 
-				$headers2 = array(
-				    // Request headers
-				    'Content-Type' => 'application/json',
-				    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
-				);
+					$headers2 = array(
+					    // Request headers
+					    'Content-Type' => 'application/json',
+					    'Ocp-Apim-Subscription-Key' => 'dd51642516ac431a9c593b4c78b8a806'
+					);
 
-				$request2->setHeader($headers2);
+					$request2->setHeader($headers2);
 
-				$parameters2 = array(
-				);
+					$parameters2 = array(
+					);
 
-				$url2->setQueryVariables($parameters2);
+					$url2->setQueryVariables($parameters2);
 
-				$request2->setMethod(HTTP_Request2::METHOD_POST);
+					$request2->setMethod(HTTP_Request2::METHOD_POST);
 
-				// Request body
-				$request2->setBody("{
-    'faceId1':'$faceID',
-    'faceId2':'$mainFaceID'
-}");
+					// Request body
+					$request2->setBody("{
+	    'faceId1':'$faceID',
+	    'faceId2':'$mainFaceID'
+	}");
 
-				try
-				{
-				    $response2 = $request2->send();
-				    $result = $response2->getBody();
-				    echo $result;
-				    /*$isIdentical = json_decode($result)[0]->{'isIdentical'};
-				    if($isIdentical)
-				    	echo "True".$id;
-				    else
-				    	echo "False";*/
-				}
-				catch (HttpException $ex)
-				{
-				    echo $ex;
+					try
+					{
+					    $response2 = $request2->send();
+					    $result = $response2->getBody();
+					    echo $result;
+					    /*$isIdentical = json_decode($result)[0]->{'isIdentical'};
+					    if($isIdentical)
+					    	echo "True".$id;
+					    else
+					    	echo "False";*/
+					}
+					catch (HttpException $ex)
+					{
+					    echo $ex;
+					}
 				}
 			}
 			catch(ServiceException $e){

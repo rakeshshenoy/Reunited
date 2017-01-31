@@ -32,7 +32,8 @@ $request->setBody('{
 try
 {
     $response = $request->send();
-    var_dump($response->getBody());
+    $x = json_decode($response->getBody());
+    var_dump($x[0]);
 }
 catch (HttpException $ex)
 {
