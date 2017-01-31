@@ -30,5 +30,5 @@ $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1
 				$y = $response->getBody();
 				//var_dump($y);
 				$mainFaceID = json_decode($y, true);
-				echo $mainFaceID[0][0];
+				echo $mainFaceID[0]["faceId"];
 ?>
