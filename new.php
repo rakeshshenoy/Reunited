@@ -45,7 +45,7 @@
 				$mainFaceID = $mainFaceID[0]->{"faceId"};
 				//echo $mainFaceID;
 
-				$query = $conn->prepare('SELECT id FROM test');
+				$query = $conn->prepare('SELECT id FROM LostPersons');
 	    		$query->execute();
 				while ($id = $query->fetch()) {
 					//$id = 22;
