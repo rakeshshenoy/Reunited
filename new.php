@@ -49,8 +49,8 @@
 	    		$query->execute();
 				while ($id = $query->fetch()) {
 					//$id = 22;
-					echo $id;
-					$blob = $blobRestProxy->getBlob("photos", $id);
+					//echo $id;
+					$blob = $blobRestProxy->getBlob("photos", intval($id[0]));
 				    $x = $blob->getContentStream();
 				    $request->setBody($x);
 					try
@@ -67,7 +67,7 @@
 					$faceID = $faceID[0]->{"faceId"};
 					echo $faceID;
 
-					/*$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
+					$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 					$url2 = $request2->getUrl();
 
 					$headers2 = array(
@@ -98,14 +98,14 @@
 					    //echo $result;
 					    $isIdentical = $result["isIdentical"];
 					    if($isIdentical)
-					    	echo "True".$id;
+					    	echo "True".intval($id[0]);
 					}
 					catch (HttpException $ex)
 					{
 					    echo $ex;
-					}*/
+					}
 				}
-				//echo "False";
+				echo "False";
 			}
 			catch(ServiceException $e){
 				$code = $e->getCode();
