@@ -49,6 +49,7 @@
 	    		$query->execute();
 				while ($id = $query->fetch()) {
 					//$id = 22;
+					echo $id;
 					$blob = $blobRestProxy->getBlob("photos", $id);
 				    $x = $blob->getContentStream();
 				    $request->setBody($x);
