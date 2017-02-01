@@ -42,6 +42,10 @@
 				$y = $response->getBody();
 				//var_dump($y);
 				$mainFaceID = json_decode($y);
+				if(empty($mainFaceID))
+				{
+					die("Error! Upload better image!");
+				}
 				$mainFaceID = $mainFaceID[0]->{"faceId"};
 				//echo $mainFaceID;
 
@@ -65,6 +69,8 @@
 					$y = $response->getBody();
 					//var_dump($y);
 					$faceID = json_decode($y);
+					if(empty($faceID))
+						continue;
 					$faceID = $faceID[0]->{"faceId"};
 					//echo $faceID;
 
