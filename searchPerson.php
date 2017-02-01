@@ -1,8 +1,9 @@
 <?php
+require_once 'dbConnect.php';
 require_once 'vendor/autoload.php';
 require_once 'HTTP/Request2.php';
 
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
+/*$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/detect');
 				$url = $request->getUrl();
 				$headers = array(
 				    // Request headers
@@ -30,5 +31,10 @@ $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1
 				$y = $response->getBody();
 				//var_dump($y);
 				$mainFaceID = json_decode($y, true);
-				echo $mainFaceID[0]["faceId"];
+				echo $mainFaceID[0]["faceId"];*/
+				$query = $conn->prepare('SELECT id FROM LostPersons');
+	    		$query->execute();
+	    		while ($id = $query->fetch()) {
+					echo $id;
+				}
 ?>
