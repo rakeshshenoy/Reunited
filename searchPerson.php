@@ -35,6 +35,6 @@ require_once 'HTTP/Request2.php';
 				$query = $conn->prepare('SELECT id FROM LostPersons');
 	    		$query->execute();
 	    		while ($id = $query->fetch()) {
-					var_dump($id);
+					var_dump($id['id']);
 				}
 ?>
