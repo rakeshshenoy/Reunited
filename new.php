@@ -47,6 +47,7 @@
 
 				$query = $conn->prepare('SELECT id FROM LostPersons');
 	    		$query->execute();
+	    		$flag = false;
 				while ($id = $query->fetch()) {
 					//$id = 22;
 					//echo $id;
@@ -65,7 +66,7 @@
 					//var_dump($y);
 					$faceID = json_decode($y);
 					$faceID = $faceID[0]->{"faceId"};
-					echo $faceID;
+					//echo $faceID;
 
 					$request2 = new Http_Request2('https://westus.api.cognitive.microsoft.com/face/v1.0/verify');
 					$url2 = $request2->getUrl();
@@ -98,14 +99,19 @@
 					    //echo $result;
 					    $isIdentical = $result["isIdentical"];
 					    if($isIdentical)
+					    {	
 					    	echo "True".intval($id[0]);
+					    	$flag = true;
+					    	break;
+					    }
 					}
 					catch (HttpException $ex)
 					{
 					    echo $ex;
 					}
 				}
-				echo "False";
+				if(!$flag)
+					echo "False";
 			}
 			catch(ServiceException $e){
 				$code = $e->getCode();
